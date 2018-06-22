@@ -1,0 +1,247 @@
+
+
+## Adolescent - Gender 
+
+```{r echo=FALSE,  results='asis' }
+block2<-data.frame(t(rep(0,4)))
+colnames(block2)<-c("Male Counts", "Male Percent", "Female Counts", "Female Percent")
+block2[1,1]<-block1[3,2]
+block2[1,3]<-block1[4,2]
+block2[1,2]<-block2[1,1]/(block2[1,1]+block2[1,3])
+block2[1,4]<-block2[1,3]/(block2[1,1]+block2[1,3])
+block2[1,1]<-formatC(block2[1,1], format="d", big.mark=',')
+block2[1,3]<-formatC(block2[1,3], format="d", big.mark=',')
+block2[1,2]<-sprintf("%1.1f%%", block2[1,2]*100)
+block2[1,4]<-sprintf("%1.1f%%", block2[1,4]*100)
+kable(block2, format = "html",   pad=0)
+```
+
+
+```{r fig.width=6, fig.height=4, echo=FALSE,  dev='svg'}
+block3<-data.frame(x1=c("Males", "Females"), res=rep(0,2))
+block3[1,2] <- ifelse(dim(adol  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Male")   %>% select(n))[1]==0,0, adol  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Male")   %>% select(n) )
+block3[2,2] <- ifelse(dim(adol  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Female") %>% select(n))[1]==0,0, adol  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Female") %>% select(n) )
+
+g <- ggpie(block3, "", by = "x1", totals ="res")
+g
+
+```
+
+
+
+
+
+
+## Adolescent - Age
+
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="age", newvn="Age")
+#print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+## Adolescent - Race
+
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="race", newvn="Race")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+## Adolescent - Religion
+```{r   echo=FALSE,  results='asis'  }
+tub<-tabb(data=adol, varr="religion", newvn="Religion")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+
+
+## Adolescent - Education Level
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="educ", newvn="Education")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+
+## Adolescent - Repeated Grade
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="repgrade", newvn="Repeated Grade")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+
+## Adolescent - Special Education
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="spcleduc", newvn="Special Education")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+
+## Adolescent - Impregnated Girl/Times Pregnant
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="pregnant", newvn="Pregnant")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+
+
+ 
+
+## Adolescent - Number of Families Lived With
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="families", newvn="Families")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+
+
+
+
+
+ 
+
+
+## Adolescent - Times Raped
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="tmsraped", newvn="Times Raped")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+
+
+## Adolescent - Sexual Orientation
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="homohetr", newvn="Orientation")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+## Adolescent - Accused
+```{r fig.width=10, fig.height=9, echo=FALSE,  results='asis',dev='png' }
+vars<-c( 'accused1', 'accused2', 'accused3', 'accused4', 'accused5', 'accused6', 'accused7')
+labs<-c( 'Never Blamed', 'Never Near the Kid', 'Was Near the Kid', 'The Kid Wanted Me To', 'Just Like They Said', 'Not As Much as They Said',
+	'A Lot More Than They Know')
+out2<-PercBox1(vars=vars,labs=labs,data=adol)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+
+
+## Adolescent - Not Accused
+```{r  echo=FALSE,  results='asis' }
+tub<-tabb(data=adol, varr="naccused", newvn="Not Accused")
+if (ncol(tub[[2]])==3) {print(xtable(tub[[2]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(tub[[2]])==5) {print(xtable(tub[[2]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```
+
+```{r fig.width=7, fig.height=3.0, echo=FALSE, dev='svg' }
+tub[[3]]
+```
+
+
+
+
+## Adolescent - Sexual Behaviors Group 1
+```{r fig.width=7, fig.height=3.5, echo=FALSE,  results='asis',dev='svg' }
+vars<-c( 'bhv1','bhv3', 'bhv4', 'bhv5', 'bhv7', 'bhv8')
+labs<-c( 'Public \nExposure', 'Window \nPeeping', 'Sexual with \nAnimals', 'Obscene \nLetters/Calls', 'Child Sexual \nAbuse', 'Frottage')
+out2<-PercBox1(vars=vars, labs=labs, data=adol)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+out2a<-data.frame(out2[[2]])
+out2a$beh <-labs
+  if ( table(adol$sex)[1]==0 & table(adol$sex)[2] >0 ) {colnames(out2a)<- c("Male",  "Behavior")}
+  if ( table(adol$sex)[1]>0 & table(adol$sex)[2] ==0 ) {colnames(out2a)<- c("Female", "Behavior")}
+  if ( table(adol$sex)[1]>0 & table(adol$sex)[2] >0 )  {colnames(out2a)<- c("Male", "Female", "Behavior")}
+out3<-melt(out2a, id="Behavior")
+g1<-ggplot(out3, aes(x = factor(Behavior, levels=labs), y = value, fill=variable)) +   geom_bar(stat = "identity", position="dodge") +
+ 	scale_fill_manual(values=c("Navyblue","#007FFF"), name="Gender") +  ylab("Percent") +  xlab("Behavior") + theme_minimal() +  
+	geom_text(aes(y=value,   label=paste0(round(value,1),"%"  )), position= position_dodge(width=0.9), vjust=-.5, color="black", size=2.5) +
+	scale_y_continuous("Percent",limits=c(0,max(out3$value)*1.1))
+g1
+
+
+doAdolescenttCSAChunk <- ifelse(sum( adol$bhv7, na.rm=T) >0, TRUE, FALSE)
+```
+
+
+
+
+
+
+## Adolescent - Sexual Behaviors Group 2
+```{r fig.width=7, fig.height=3.0, echo=FALSE,  results='asis',dev='svg' }
+vars<-c( 'bhv2','bhv6', 'bhv9', 'bhv10', 'bhv11', 'bhv12', 'bhvint')
+labs<-c( 'Fetishism', 'Masochism', 'Tranvestism', 'Sadism', 'Telephone Sex', 'Used Erotica', 'Internet Sex')
+out2<-PercBox1(vars=vars, labs=labs, data=adol)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+out2a<-data.frame(out2[[2]])
+out2a$beh <-labs
+  if ( table(adol$sex)[1]==0 & table(adol$sex)[2] >0 ) {colnames(out2a)<- c("Male",  "Behavior")}
+  if ( table(adol$sex)[1]>0 & table(adol$sex)[2] ==0 ) {colnames(out2a)<- c("Female", "Behavior")}
+  if ( table(adol$sex)[1]>0 & table(adol$sex)[2] >0 )  {colnames(out2a)<- c("Male", "Female", "Behavior")}
+out3<-melt(out2a, id="Behavior")
+g1<-ggplot(out3, aes(x = factor(Behavior, levels=labs), y = value, fill=variable)) +   geom_bar(stat = "identity", position="dodge") +
+ 	scale_fill_manual(values=c("Navyblue","#007FFF"), name="Gender") +  ylab("Percent") +  xlab("Behavior") + theme_minimal() +  
+	geom_text(aes(y=value,   label=paste0(round(value,1),"%"  )), position= position_dodge(width=0.9), vjust=-.5, color="black", size=2.5) +
+	scale_y_continuous("Percent",limits=c(0,max(out3$value)*1.1))  + theme(axis.text=element_text(size=8))
+g1
+```
+
+
+
+
+
+```{r child = 'AdolescentCSA.Rmd', eval=doAdolescenttCSAChunk}
+```
+ 

@@ -1,0 +1,90 @@
+
+
+## Adult - Child Sexual Abusers 
+Onset, End, # of Children and # of Times
+```{r fig.width=7, fig.height=3.5, echo=FALSE,  results='asis',dev='svg', eval=T }
+labs<-c("Age First \nTouched Child", "Age Last \nTouched Child", "# of Children \nTouched", "# of Times - \nLifetime")
+vars<-c("v5a","v5b","v5c","v5d")
+out2<-MeanBox1(vars=vars, labs=labs, data=setcsa)
+#print(xtable(out2[[1]],align="llrrrr"),type="html",include.rownames=FALSE)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+
+out2a<-data.frame(out2[[2]])
+out2a$beh <-labs
+  if ( table(set$sex)[1]==0 & table(set$sex)[2] >0 ) {colnames(out2a)<- c("Male",  "Behavior")}
+  if ( table(set$sex)[1]>0 & table(set$sex)[2] ==0 ) {colnames(out2a)<- c("Female", "Behavior")}
+  if ( table(set$sex)[1]>0 & table(set$sex)[2] >0 )  {colnames(out2a)<- c("Male", "Female", "Behavior")}
+out3<-melt(out2a, id="Behavior")
+g1<-ggplot(out3, aes(x = factor(Behavior, levels=labs), y = value, fill=variable)) +   geom_bar(stat = "identity", position="dodge") +
+ 	scale_fill_manual(values=c("Navyblue","#007FFF"), name="Gender") +  ylab("Percent") +  xlab("Behavior") + theme_minimal() +  
+	geom_text(aes(y=value,   label=round(value,1)), position= position_dodge(width=0.9), vjust=-.5, color="black") +
+	scale_y_continuous("Mean",limits=c(0,max(out3$value)*1.1))
+g1
+
+```
+
+
+
+
+## Adult - Child Sexual Abusers - Amount of Force Used
+
+```{r fig.width=7, fig.height=3.25, echo=FALSE,  results='asis',dev='svg', eval=T }
+vars<-c( 'v5f1','v5f2', 'v5f3', 'v5f4', 'v5f5', 'v5f6')
+labs<-c( 'Started by \nChild','Mutual \nAgreement', 'Verbal \nThreat', 'Physical \nRestraint', 'Excessive \nAggression', 'Death')
+out2<-PercBox1(vars=vars,labs=labs,data=setcsa)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+
+out2a<-data.frame(out2[[2]])
+out2a$beh <-labs
+  if ( table(set$sex)[1]==0 & table(set$sex)[2] >0 ) {colnames(out2a)<- c("Male",  "Behavior")}
+  if ( table(set$sex)[1]>0 & table(set$sex)[2] ==0 ) {colnames(out2a)<- c("Female", "Behavior")}
+  if ( table(set$sex)[1]>0 & table(set$sex)[2] >0 )  {colnames(out2a)<- c("Male", "Female", "Behavior")}
+out3<-melt(out2a, id="Behavior")
+g1<-ggplot(out3, aes(x = factor(Behavior, levels=labs), y = value, fill=variable)) +   geom_bar(stat = "identity", position="dodge") +
+ 	scale_fill_manual(values=c("Navyblue","#007FFF"), name="Gender") +  ylab("Percent") +  xlab("Behavior") + theme_minimal() +  
+	geom_text(aes(y=value,   label=paste0(round(value,1),"%"  )), position= position_dodge(width=0.9), vjust=-.5, color="black", size =3) +
+	scale_y_continuous("Percent",limits=c(0,max(out3$value)*1.1))
+g1
+```
+
+
+
+
+
+## Adult - Child Sexual Abusers - Gender and Age of Victims
+```{r fig.width=7, fig.height=3.75, echo=FALSE,  results='asis',dev='svg', eval=T }
+vars<-c( 'bu14','bo13', 'gu14', 'go13')
+labs<-c( 'Boys under 14','Boys 14-17', 'Girls under 14', 'Girls 14-17')
+out2<-PercBox1(vars=vars,labs=labs,data=setcsa)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+
+out2a<-data.frame(out2[[2]])
+out2a$beh <-labs
+  if ( table(set$sex)[1]==0 & table(set$sex)[2] >0 ) {colnames(out2a)<- c("Male",  "Behavior")}
+  if ( table(set$sex)[1]>0 & table(set$sex)[2] ==0 ) {colnames(out2a)<- c("Female", "Behavior")}
+  if ( table(set$sex)[1]>0 & table(set$sex)[2] >0 )  {colnames(out2a)<- c("Male", "Female", "Behavior")}
+out3<-melt(out2a, id="Behavior")
+g1<-ggplot(out3, aes(x = factor(Behavior, levels=labs), y = value, fill=variable)) +   geom_bar(stat = "identity", position="dodge") +
+ 	scale_fill_manual(values=c("Navyblue","#007FFF"), name="Gender") +  ylab("Percent") +  xlab("Behavior") + theme_minimal() +  
+	geom_text(aes(y=value,   label=paste0(round(value,1),"%"  )), position= position_dodge(width=0.9), vjust=-.5, color="black", size =3) +
+	scale_y_continuous("Percent",limits=c(0,max(out3$value)*1.1))
+g1
+```
+
+
+
+
+## Adult - Child Sexual Abusers - Relationship to Victims
+```{r   echo=FALSE,  results='asis' , eval=T }
+vars<-c( 'v5i1','v5i2','v5i3','v5i4','v5i5','v5i6','v5i7','v5i8','v5i9','v5i10','v5i11','v5i12','v5i13','v5i14')
+labs<-c('Biological Children', 'Stepchildren or Children of Live-in Partner', 'Foster Children', 'Adopted Children', 'Grandchildren',
+	'Younger Brothers & Sisters', 'Nieces & Nephews', 'Children of Neighbors or Other Acquaintances', 'Children Left in My Care by Organization',
+	'Strangers', 'Children Who I Teach', 'Children Who I coach or Train', 'Children Who Are Patients or Clients', 
+	'Children Who I Connect with in a Religious Context')
+out2<-PercBox1(vars=vars,labs=labs,data=setcsa)
+if (ncol(out2[[1]])==3) {print(xtable(out2[[1]],align="llrr"  ),type="html",include.rownames=FALSE)}
+if (ncol(out2[[1]])==5) {print(xtable(out2[[1]],align="llrrrr"  ),type="html",include.rownames=FALSE)}
+```

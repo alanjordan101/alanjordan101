@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "---\noutput:\n  revealjs::revealjs_presentation:\n    self_contained: false\n    transition: none\n    css: styles.css\n    theme: serif\n    reveal_options:\n      slideNumber: true\n    keep_md: yes\n---\n\n\n\n\n```{r  include=FALSE}\nrequire(xtable, quietly = TRUE, warn.conflicts = T)\nrequire(gridExtra, quietly = TRUE, warn.conflicts = T)\nrequire(ggplot2, quietly = TRUE, warn.conflicts = T)\nrequire(tables, quietly = TRUE, warn.conflicts = T)\nrequire(knitr, quietly = TRUE, warn.conflicts = T)\nrequire(dplyr, quietly = TRUE, warn.conflicts = T)\nrequire(reshape2, quietly = TRUE, warn.conflicts = T)\n\nload(file = \"C:\\\\Data\\\\RData\\\\adol2web.Rdata\")\nload(file = \"C:\\\\Data\\\\RData\\\\adol2CSAweb.Rdata\")\nload(file = \"C:\\\\Data\\\\RData\\\\set.Rdata\")\nload(file = \"C:\\\\Data\\\\RData\\\\setCSA.Rdata\")\n\nsource(file=\"C:\\\\Abel\\\\WebData2016\\\\WebdataFunctions.R\")\n\n#set<-subset(set, sex==\"Q\")\n#adol<-subset(adol, sex==\"Q\")\n#set<-subset(set, childmol==0)\n#adol<-subset(adol, bhv7==0)\n\n\n#set<-subset(set, sex==\"Male\" )\n#setcsa<-subset(setcsa, sex==\"Male\" )\n#adol<-subset(adol, sex==\"Male\")\n#adolcsa<-subset(adolcsa, sex==\"Male\")\n```\n\n\n##<large>ASI Web Data\nTotal Number of Questionnaires\nAll Sites AASI-1 through 3 \nUpdated June 2016 \n\n```{r fig.width=5, fig.height=4, echo=FALSE,  results='asis',dev='svg' }\nblock1<-data.frame(x=c(\"Adult Males\", \"Adult Females\", \"Adolescent Males\", \"Adolescent Females\", \"Total\"), y=rep(0,5))\ncolnames(block1)<-c(\"Questionnaire Type\", \"Count\")\nblock1[1,2] <- ifelse(dim(set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Male\")   %>% select(n))[1]==0,0, set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Male\")   %>% select(n) )\nblock1[2,2] <- ifelse(dim(set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Female\") %>% select(n))[1]==0,0, set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Female\") %>% select(n) )\nblock1[3,2] <- ifelse(dim(adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Male\")   %>% select(n))[1]==0,0, adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Male\")   %>% select(n) )\nblock1[4,2] <- ifelse(dim(adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Female\") %>% select(n))[1]==0,0, adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex==\"Female\") %>% select(n) )\nblock1[5,2] <- sum(block1[1:4,2])\nkable(block1, format = \"html\",   pad=0, format.args =  list(big.mark = ','))\n```\n</large>\n\n\n\n\n```{r label, echo=FALSE}\ndoAdultChunk <- ifelse(sum(block1[1:2,2])>0,TRUE,FALSE)\ndoAdolescentChunk <-ifelse(sum(block1[3:4,2])>0,TRUE,FALSE)\n\n```\n\n\n\n\n```{r child = 'Adult.Rmd', eval=doAdultChunk}\n```\n\n\n\n```{r child = 'Adolescent.Rmd', eval=doAdolescentChunk}\n```",
+    "created" : 1463750501020.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2141967282",
+    "id" : "D4BA513A",
+    "lastKnownWriteTime" : 1470410735,
+    "last_content_update" : 0,
+    "path" : "C:/Alans Repository/WebData2016/ASI Web Data2.Rmd",
+    "project_path" : "ASI Web Data2.Rmd",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

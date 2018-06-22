@@ -1,0 +1,207 @@
+
+setwd("D:\\Alans Repository\\@ AASI Data\\Current Rdata")
+
+sites <- readRDS("sites.rds")
+quest2 <- readRDS("AdultQ2.rds")
+quest3 <- readRDS("AdultQ3.rds")
+
+# AASI2
+quest2<-subset(quest2, sex %in% c(1,2) & age>17)
+#quest2<-subset(quest2, sex %in% c(1,2) ) # Temp
+quest2$group<-2
+quest2$educ<-8-quest2$educ
+
+
+quest2$gender<-ifelse(quest2$sex==1,"Male","Female")
+
+quest2$childporn<-NA
+quest2$childmeet<-NA
+
+quest2$v5a<-quest2$bhv11a
+quest2$v5b<-quest2$bhv11b
+quest2$v5c<-quest2$bhv11c
+quest2$v5d<-quest2$bhv11d
+quest2$v5e<-quest2$bhv11e
+
+quest2$v5f1<-quest2$bhv11f1
+quest2$v5f2<-quest2$bhv11f2
+quest2$v5f3<-quest2$bhv11f3
+quest2$v5f4<-quest2$bhv11f4
+quest2$v5f5<-quest2$bhv11f5
+quest2$v5f6<-quest2$bhv11f6
+quest2$v5f7<-quest2$bhv11f7
+
+
+
+
+quest2$go13<-ifelse(quest2$bhv11gg1==1 |quest2$bhv11gg2==1,1,0)
+quest2$gu14<-ifelse(quest2$bhv11gg3==1 |quest2$bhv11gg4==1,1,0)
+quest2$bo13<-ifelse(quest2$bhv11gg5==1 |quest2$bhv11gg6==1,1,0)
+quest2$bu14<-ifelse(quest2$bhv11gg7==1 |quest2$bhv11gg8==1,1,0)
+
+quest2$v5i1<-quest2$bhv11h1
+quest2$v5i2<-quest2$bhv11h2
+quest2$v5i3<-quest2$bhv11h3
+quest2$v5i4<-quest2$bhv11h4
+quest2$v5i5<-quest2$bhv11h5
+quest2$v5i6<-quest2$bhv11h6
+quest2$v5i7<-quest2$bhv11h7
+quest2$v5i8<-quest2$bhv11h8
+quest2$v5i9<-quest2$bhv11h9
+quest2$v5i10<-quest2$bhv11h10
+quest2$v5i11<-NA
+quest2$v5i12<-NA
+quest2$v5i13<-NA
+quest2$v5i14<-NA
+
+
+quest2$naccused<-3
+quest2$naccused[as.character(quest2$I.107)=="1"]<-1
+quest2$naccused[as.character(quest2$I.107)=="2"]<-2
+quest2$naccmol<-0
+quest2$naccmol[quest2$naccused==1]<-1
+
+
+
+
+# AASI3
+quest3<-subset(quest3, sex %in% c(1,2) & age>17)
+#quest3<-subset(quest3, sex %in% c(1,2) ) # Temp
+quest3$group<-3
+quest3$gender<-ifelse(quest3$sex==1,"Male","Female")
+quest3$vic73<-as.numeric(as.character(quest3$II.26))
+quest3$sexpref<-as.numeric(as.character(quest3$VI.6))
+
+quest3$expose<-quest3$v1
+quest3$frottage<-quest3$v2
+quest3$voyeur<-quest3$v3
+quest3$obsphone<-quest3$v4
+quest3$childmol<-quest3$v5
+quest3$psm<-quest3$v6
+quest3$childporn<-quest3$v7
+quest3$childmeet<-quest3$v8
+quest3$publmast<-quest3$v9
+quest3$fetish<-quest3$v10
+quest3$bestial<-quest3$v11
+quest3$masochsm<-quest3$v13
+quest3$copraph<-quest3$v14
+quest3$rape<-quest3$v15
+quest3$sadism<-quest3$v16
+quest3$transvst<-quest3$v17
+quest3$prostitu<-quest3$v18
+quest3$affairs<-quest3$v19
+quest3$affstran<-quest3$v20
+quest3$phonesex<-quest3$v21
+quest3$porn<-quest3$v22
+quest3$internet<-quest3$v24
+
+
+quest3$go13<-ifelse(quest3$v5h9==1 |quest3$v5h10==1,1,0)
+quest3$gu14<-ifelse(quest3$v5h1==1 |quest3$v5h2==1 | quest3$v5h5==1 |quest3$v5h6==1    ,1,0 )
+quest3$bo13<-ifelse(quest3$v5h11==1 |quest3$v5h12==1,1,0)
+quest3$bu14<-ifelse(quest3$v5h3==1 |quest3$v5h4==1 | quest3$v5h7==1 |quest3$v5h8==1  ,1,0)
+
+
+#1) African/African-American
+#2) Asian/Asian American
+#3) Latino/Hispanic
+#4) Native American
+#5) White/Caucasian
+#6) More than one race
+#7) Other
+
+quest3$race2<-quest3$race
+
+quest3$race[quest3$race2==1]<-2
+quest3$race[quest3$race2==2]<-4
+quest3$race[quest3$race2==3]<-1
+quest3$race[quest3$race2==4]<-5
+quest3$race[quest3$race2==5]<-3
+quest3$race[quest3$race2==6]<-7
+quest3$race[quest3$race2==7]<-6
+
+quest3$naccused<-3
+quest3$naccused[as.character(quest3$I.102)=="1"]<-1
+quest3$naccused[as.character(quest3$I.102)=="2"]<-2
+quest3$naccmol<-0
+quest3$naccmol[quest3$naccused==1]<-1
+
+
+varlist<-c( "SITE", "SUBSITE", "CLIENT", "DATETAKEN", "group", "sex", "gender", "age", "race", "marital",
+            "religion", "educ", "income",   "vic73", "sexpref", "naccused", "naccmol",
+            
+            "expose", "publmast", "fetish", "frottage", "voyeur", "bestial", "obsphone",
+            "masochsm", "copraph", "childmol", "rape", "sadism", "transvst", "psm", 
+            "prostitu", "affairs", "affstran", "phonesex", "porn", "internet",
+            "childporn", "childmeet",
+            "v5a", "v5b", "v5c", "v5d", "v5e",
+            "v5f1","v5f2","v5f3","v5f4","v5f5","v5f6",
+            "gu14", "go13", "bu14", "bo13",
+            "v5i1", "v5i2", "v5i3", "v5i4", "v5i5", "v5i6", "v5i7", "v5i8", "v5i9",
+            "v5i10", "v5i11", "v5i12", "v5i13", "v5i14")
+
+set2<-quest2[varlist]
+set3<-quest3[varlist]
+
+set<-rbind(set2,set3)
+
+
+set<-merge(set, sites, by="SITE", all.x=T)         # Use to filter out non North American sites
+set<-subset(set,SITE<2900) # temporarily commented out
+
+
+# Create Age Categories for Adults
+set$acat[set$age<25]<-' LT 25 Yrs'
+set$acat[set$age>24 & set$age<35]<-'25-34 Yrs'
+set$acat[set$age>34 & set$age<45]<-'35-44 Yrs'
+set$acat[set$age>44 & set$age<55]<-'45-54 Yrs'
+set$acat[set$age>54 ]<-'55 Yrs +'
+set$acat <-factor(set$acat) 
+
+
+set$sex2<-set$sex
+
+set$sex<- factor(set$sex,
+                 levels = c(2,1),
+                 labels = c("Female","Male"))
+
+
+
+set$race <- factor(set$race,
+                   levels = c(1,2,3,4,5,6,7),
+                   labels = c("Hispanic", "African -\nAmerican", "Caucasian", "Asian -\nAmerican", "Native -\nAmerican", "Other", "Biracial"))
+
+set$marital <- factor(set$marital,
+                      levels = c(1,2,3,4,5,6),
+                      labels = c("Single", "Separated", "Divorced", "Widowed","Live w/Partner", "Married")) 
+
+set$religion <- factor(set$religion,
+                       levels = c(1:14),
+                       labels = c('Roman Catholic', 'Jewish', 'Muslim', 'Pentecostal', 'Baptist', 'Episcopal', 'Methodist', 'Lutheran', 'Mormon', 'Eastern\n Orthodox', 'Presbyterian',  'Other', 
+                                  'None', 'Atheist')) 
+
+set$educ <- ordered(set$educ,
+                    levels = c(1:7),
+                    labels = c('Less Than\n 9 Years', 'Junior\n High', 'Some High\n School', 'High\n School', 'Some\n College', 'College\n Degree', 'Graduate\n Degree'))  
+
+set$income <- ordered(set$income,
+                      levels = c(9,1,2,3,4,5,6,7,8),
+                      labels = c('Under \n$2K', '$2K to \n$15K', '$15K to \n$25K', '$25K to \n$40K', '$40K to \n$60K', '$60K to \n$150K', '$150K to \n$400K',  '$400K +', ' None'))   
+
+
+set$vic73 <- ordered(set$vic73,
+                     levels = c(1:6),
+                     labels = c(' None', ' Once', '2 Times', '3-10 \nTimes', '11-50 \nTimes', 'More Than \n50 Times')) 
+
+
+set$sexpref <- ordered(set$sexpref,
+                       levels = c(1:7),
+                       labels = c('Heterosexual', 'Incidental \nHomosexual', 'More \nHeterosexual', 'Equally \nEach', 'More \nHomosexual', 'Incidental \nHeterosexual', 'Homosexual')) 
+
+
+
+save(set, file = "C:\\Data\\RData\\set.Rdata")
+
+# Subset Adult Child Sexual Abusers
+setcsa<-subset(set, childmol==1)
+save(setcsa, file = "C:\\Data\\RData\\setCSA.Rdata")

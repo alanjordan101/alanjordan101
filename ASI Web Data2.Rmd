@@ -1,0 +1,82 @@
+---
+output:
+  revealjs::revealjs_presentation:
+    self_contained: false
+    transition: none
+    css: styles.css
+    theme: serif
+    reveal_options:
+      slideNumber: true
+    keep_md: yes
+---
+
+
+
+
+```{r  include=FALSE}
+require(xtable, quietly = TRUE, warn.conflicts = T)
+require(gridExtra, quietly = TRUE, warn.conflicts = T)
+require(ggplot2, quietly = TRUE, warn.conflicts = T)
+require(tables, quietly = TRUE, warn.conflicts = T)
+require(knitr, quietly = TRUE, warn.conflicts = T)
+require(dplyr, quietly = TRUE, warn.conflicts = T)
+require(reshape2, quietly = TRUE, warn.conflicts = T)
+
+
+
+adol    <- readRDS(file = "D:\\Alans Repository\\@ AASI Data\\Current Rdata\\adol2web.rds")
+adolcsa <- readRDS(file = "D:\\Alans Repository\\@ AASI Data\\Current Rdata\\adol2CSAweb.rds")
+set     <- readRDS(file = "D:\\Alans Repository\\@ AASI Data\\Current Rdata\\set.rds")
+setcsa  <- readRDS(file = "D:\\Alans Repository\\@ AASI Data\\Current Rdata\\setCSA.rds")
+
+source(file="D:\\Alans Repository\\WebData2016\\WebdataFunctions.R")
+
+#set<-subset(set, sex=="Q")
+#adol<-subset(adol, sex=="Q")
+#set<-subset(set, childmol==0)
+#adol<-subset(adol, bhv7==0)
+
+
+#set<-subset(set, sex=="Male" )
+#setcsa<-subset(setcsa, sex=="Male" )
+#adol<-subset(adol, sex=="Male")
+#adolcsa<-subset(adolcsa, sex=="Male")
+```
+
+
+##<large>ASI Web Data
+Total Number of Questionnaires
+All Sites AASI-1 through 3 
+Updated April 2018 
+
+```{r fig.width=5, fig.height=4, echo=FALSE,  results='asis',dev='svg' }
+block1<-data.frame(x=c("Adult Males", "Adult Females", "Adolescent Males", "Adolescent Females", "Total"), y=rep(0,5))
+colnames(block1)<-c("Questionnaire Type", "Count")
+block1[1,2] <- ifelse(dim(set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Male")   %>% select(n))[1]==0,0, set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Male")   %>% select(n) )
+block1[2,2] <- ifelse(dim(set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Female") %>% select(n))[1]==0,0, set  %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Female") %>% select(n) )
+block1[3,2] <- ifelse(dim(adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Male")   %>% select(n))[1]==0,0, adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Male")   %>% select(n) )
+block1[4,2] <- ifelse(dim(adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Female") %>% select(n))[1]==0,0, adol %>% group_by(sex) %>% summarize(n=n()) %>% filter(sex=="Female") %>% select(n) )
+block1[5,2] <- sum(block1[1:4,2])
+kable(block1, format = "html",   pad=0, format.args =  list(big.mark = ','))
+```
+</large>
+
+
+
+
+```{r label, echo=FALSE}
+doAdultChunk <- ifelse(sum(block1[1:2,2])>0,TRUE,FALSE)
+doAdolescentChunk <-ifelse(sum(block1[3:4,2])>0,TRUE,FALSE)
+
+```
+
+
+
+
+```{r child = 'Adult.Rmd', eval=doAdultChunk}
+```
+
+
+
+```{r child = 'Adolescent.Rmd', eval=doAdolescentChunk}
+```

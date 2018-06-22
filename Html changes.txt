@@ -1,0 +1,357 @@
+
+
+
+1. Change reveal.css to revealAJ.css
+
+2. Change serif.css  to serifAJ.css
+
+3. Replace <!-- some tweaks to reveal css --> to </style> with
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 1.2em; }
+    .reveal h2 { font-size: 1.0em;  }
+    .reveal h3 { font-size: 1.0em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: solid;
+      border-color: black;
+      border-collapse: collapse;
+      font-size: 0.4em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: solid;
+      border-color: black;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: solid;
+      border-color: black;
+    }
+
+    .reveal table#notebox { 
+      border-style: solid;
+    }
+
+   .reveal p {
+      font-size: .5em;
+   }
+  </style>
+
+
+
+ 
+
+<style type="text/css">
+    ul{
+        padding: 0;
+        list-style: none;
+        background: #7FBFFF;
+    	font-family: Arial; 
+	font-size: 1.4em
+    }
+
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+	font-family: Arial; 
+    }
+
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+	font-family: Arial; 
+    }
+
+    ul li a:hover{
+        color: #fff;
+        background: #7FBFFF;
+
+    }
+    ul li ul.dropdown{
+        min-width: 400%; /* Set width of the dropdown */
+        background: #7FBFFF;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+	font-size: .9em
+    }
+    ul li:hover ul.dropdown{
+        display: block;	/* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+    }
+</style>
+
+
+
+5. Insert after <body>  
+
+
+
+############################## Webdata  don't insert this line!!!!  ###########################################################
+    <ul>
+        <li><a href="http://abelscreening.com/">Abelscreening.com</a></li>
+        <li><a href="#/asi-web-data">Web Data</a></li>
+        <li>
+            <a href="#">Adult &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#/adult---gender"                                          >Gender</a></li>
+                <li><a href="#/adult---age"                                             >Age</a></li>
+                <li><a href="#/adult---race"                                            >Race</a></li>
+                <li><a href="#/adult---marital-status"                                  >Marital Status</a></li>
+                <li><a href="#/adult---religion"                                        >Religion</a></li>
+                <li><a href="#/adult---education"                                       >Education</a></li>
+                <li><a href="#/adult---income"                                          >Income</a></li>
+                <li><a href="#/adult---victimization"                                   >Victimization</a></li>
+                <li><a href="#/adult---sexual-orientation---kinsey-scale"               >Sexual Orientation</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-1"            >Problematic Behaviors 1</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-2"            >Problematic Behaviors 2</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-3"            >Problematic Behaviors 3</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-4"            >Problematic Behaviors 4</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-5"            >Problematic Behaviors 5</a></li>
+                <li><a href="#/adult---child-sexual-abusers"                            >Child Sexual Abusers</a></li>
+                <li><a href="#/adult---child-sexual-abusers---amount-of-force-used"     >Child Sexual Abusers - Force</a></li>
+                <li><a href="#/adult---child-sexual-abusers---gender-and-age-of-victims">Child Sexual Abusers - Gender & Age</a></li>
+                <li><a href="#/adult---child-sexual-abusers---relationship-to-victims"  >Child Sexual Abusers - Relationship</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Adolescent &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#/adolescent---gender"                                          >Gender</a></li>
+                <li><a href="#/adolescent---age"                                             >Age</a></li>
+                <li><a href="#/adolescent---race"                                            >Race</a></li>
+                <li><a href="#/adolescent---religion"                                        >Religion</a></li>
+                <li><a href="#/adolescent---education-level"                                 >Education</a></li>
+                <li><a href="#/adolescent---repeated-grade"                                  >Repeated Grade</a></li>
+                <li><a href="#/adolescent---special-education"                               >Special Education</a></li>
+                <li><a href="#/adolescent---impregnated-girltimes-pregnant"                  >Impregnated Girl/Times Pregnant</a></li>
+                <li><a href="#/adolescent---number-of-families-lived-with"                   >Number of Families Lived With</a></li>
+                <li><a href="#/adolescent---times-raped"                                     >Times Raped</a></li>
+                <li><a href="#/adolescent---sexual-orientation"                              >Sexual Orientation</a></li>
+                <li><a href="#/adolescent---accused"                                         >Accused</a></li>
+                <li><a href="#/adolescent---not-accused"                                     >Not Accused</a></li>
+                <li><a href="#/adolescent---sexual-behaviors-group-1"                        >Problematic Behaviors 1</a></li>
+                <li><a href="#/adolescent---sexual-behaviors-group-2"                        >Problematic Behaviors 2</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers"                            >Child Sexual Abusers</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers---amount-of-force-used"     >Child Sexual Abusers - Force</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers---age-gender"               >Child Sexual Abusers - Age & Gender</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers---relationship-to-victims"  >Child Sexual Abusers - Relationship</a></li>
+            </ul>
+        </li>
+    </ul>
+
+########################### Below is for States but not Webdata.  ########################################################
+
+ 
+
+    	<ul>
+        	<li>
+            		<a href="#">Adult Males&#9662;</a>
+            		<ul class="dropdown">
+                		<li><a href="#/alabama-adult-males"                                	>Alabama</a></li>
+                		<li><a href="#/alaska-adult-males"                                 	>Alaska</a></li>
+				<li><a href="#/arizona-adult-males"					>Arizona</a></li>
+				<li><a href="#/arkansas-adult-males"					>Arkansas</a></li>
+				<li><a href="#/california-adult-males"					>California</a></li>
+				<li><a href="#/colorado-adult-males"					>Colorado</a></li>
+				<li><a href="#/connecticut-adult-males"					>Connecticut</a></li>
+				<li><a href="#/delaware-adult-males"					>Delaware</a></li>
+				<li><a href="#/florida-adult-males"					>Florida</a></li>
+				<li><a href="#/georgia-adult-males"					>Georgia</a></li>
+				<li><a href="#/hawaii-adult-males"					>Hawaii</a></li>
+				<li><a href="#/idaho-adult-males"					>Idaho</a></li>
+				<li><a href="#/illinois-adult-males"					>Illinois</a></li>
+				<li><a href="#/indiana-adult-males"					>Indiana</a></li>
+				<li><a href="#/iowa-adult-males"					>Iowa</a></li>
+				<li><a href="#/kansas-adult-males"					>Kansas</a></li>
+				<li><a href="#/kentucky-adult-males"					>Kentucky</a></li>
+				<li><a href="#/louisiana-adult-males"					>Louisiana</a></li>
+				<li><a href="#/maine-adult-males"					>Maine</a></li>
+				<li><a href="#/maryland-adult-males"					>Maryland</a></li>
+				<li><a href="#/massachusetts-adult-males"				>Massachusetts</a></li>
+				<li><a href="#/michigan-adult-males"					>Michigan</a></li>
+				<li><a href="#/minnesota-adult-males"					>Minnesota</a></li>
+				<li><a href="#/mississippi-adult-males"					>Mississippi</a></li>
+				<li><a href="#/missouri-adult-males"					>Missouri</a></li>
+				<li><a href="#/montana-adult-males"					>Montana</a></li>
+				<li><a href="#/nebraska-adult-males"					>Nebraska</a></li>
+				<li><a href="#/nevada-adult-males"					>Nevada</a></li>
+				<li><a href="#/new hampshire-adult-males"				>New Hampshire</a></li>
+				<li><a href="#/new jersey-adult-males"					>New Jersey</a></li>
+				<li><a href="#/new mexico-adult-males"					>New Mexico</a></li>
+				<li><a href="#/new york-adult-males"					>New York</a></li>
+				<li><a href="#/north carolina-adult-males"				>North Carolina</a></li>
+				<li><a href="#/north dakota-adult-males"				>North Dakota</a></li>
+				<li><a href="#/ohio-adult-males"					>Ohio</a></li>
+				<li><a href="#/oklahoma-adult-males"					>Oklahoma</a></li>
+				<li><a href="#/oregon-adult-males"					>Oregon</a></li>
+				<li><a href="#/pennsylvania-adult-males"				>Pennsylvania</a></li>
+				<li><a href="#/rhode island-adult-males"				>Rhode Island</a></li>
+				<li><a href="#/south carolina-adult-males"				>South Carolina</a></li>
+				<li><a href="#/south dakota-adult-males"				>South Dakota</a></li>
+				<li><a href="#/tennessee-adult-males"					>Tennessee</a></li>
+				<li><a href="#/texas-adult-males"					>Texas</a></li>
+				<li><a href="#/utah-adult-males"					>Utah</a></li>
+				<li><a href="#/virginia-adult-males"					>Virginia</a></li>
+				<li><a href="#/washington-adult-males"					>Washington</a></li>
+				<li><a href="#/west virginia-adult-males"				>West Virginia</a></li>
+				<li><a href="#/wisconsin-adult-males"					>Wisconsin</a></li>
+				<li><a href="#/wyoming-adult-males"					>Wyoming</a></li>
+			</ul>
+        	</li>
+        	<li>
+            		<a href="#">Adult Females&#9662;</a>
+            		<ul class="dropdown">
+                		<li><a href="#/alabama-adult-females"                                	>Alabama</a></li>
+				<li><a href="#/alabama-adult-females"					>Alabama</a></li>
+				<li><a href="#/arizona-adult-females"					>Arizona</a></li>
+				<li><a href="#/california-adult-females"				>California</a></li>
+				<li><a href="#/colorado-adult-females"					>Colorado</a></li>
+				<li><a href="#/connecticut-adult-females"				>Connecticut</a></li>
+				<li><a href="#/delaware-adult-females"					>Delaware</a></li>
+				<li><a href="#/florida-adult-females"					>Florida</a></li>
+				<li><a href="#/georgia-adult-females"					>Georgia</a></li>
+				<li><a href="#/idaho-adult-females"					>Idaho</a></li>
+				<li><a href="#/illinois-adult-females"					>Illinois</a></li>
+				<li><a href="#/iowa-adult-females"					>Iowa</a></li>
+				<li><a href="#/kansas-adult-females"					>Kansas</a></li>
+				<li><a href="#/kentucky-adult-females"					>Kentucky</a></li>
+				<li><a href="#/louisiana-adult-females"					>Louisiana</a></li>
+				<li><a href="#/maryland-adult-females"					>Maryland</a></li>
+				<li><a href="#/massachusetts-adult-females"				>Massachusetts</a></li>
+				<li><a href="#/michigan-adult-females"					>Michigan</a></li>
+				<li><a href="#/minnesota-adult-females"					>Minnesota</a></li>
+				<li><a href="#/missouri-adult-females"					>Missouri</a></li>
+				<li><a href="#/montana-adult-females"					>Montana</a></li>
+				<li><a href="#/nevada-adult-females"					>Nevada</a></li>
+				<li><a href="#/new mexico-adult-females"				>New Mexico</a></li>
+				<li><a href="#/new york-adult-females"					>New York</a></li>
+				<li><a href="#/north carolina-adult-females"				>North Carolina</a></li>
+				<li><a href="#/north dakota-adult-females"				>North Dakota</a></li>
+				<li><a href="#/ohio-adult-females"					>Ohio</a></li>
+				<li><a href="#/oklahoma-adult-females"					>Oklahoma</a></li>
+				<li><a href="#/oregon-adult-females"					>Oregon</a></li>
+				<li><a href="#/pennsylvania-adult-females"				>Pennsylvania</a></li>
+				<li><a href="#/south carolina-adult-females"				>South Carolina</a></li>
+				<li><a href="#/south dakota-adult-females"				>South Dakota</a></li>
+				<li><a href="#/tennessee-adult-females"					>Tennessee</a></li>
+				<li><a href="#/texas-adult-females"					>Texas</a></li>
+				<li><a href="#/virginia-adult-females"					>Virginia</a></li>
+				<li><a href="#/washington-adult-females"				>Washington</a></li>
+				<li><a href="#/west virginia-adult-females"				>West Virginia</a></li>
+			</ul>
+        	</li>
+        	<li>
+            		<a href="#">Adolescent Males&#9662;</a>
+            		<ul class="dropdown">
+				<li><a href="#/alabama-adolescent-males"				>Alabama</a></li>
+				<li><a href="#/alaska-adolescent-males"					>Alaska</a></li>
+				<li><a href="#/arizona-adolescent-males"				>Arizona</a></li>
+				<li><a href="#/california-adolescent-males"				>California</a></li>
+				<li><a href="#/colorado-adolescent-males"				>Colorado</a></li>
+				<li><a href="#/connecticut-adolescent-males"				>Connecticut</a></li>
+				<li><a href="#/delaware-adolescent-males"				>Delaware</a></li>
+				<li><a href="#/florida-adolescent-males"				>Florida</a></li>
+				<li><a href="#/georgia-adolescent-males"				>Georgia</a></li>
+				<li><a href="#/hawaii-adolescent-males"					>Hawaii</a></li>
+				<li><a href="#/idaho-adolescent-males"					>Idaho</a></li>
+				<li><a href="#/illinois-adolescent-males"				>Illinois</a></li>
+				<li><a href="#/indiana-adolescent-males"				>Indiana</a></li>
+				<li><a href="#/iowa-adolescent-males"					>Iowa</a></li>
+				<li><a href="#/kansas-adolescent-males"					>Kansas</a></li>
+				<li><a href="#/kentucky-adolescent-males"				>Kentucky</a></li>
+				<li><a href="#/louisiana-adolescent-males"				>Louisiana</a></li>
+				<li><a href="#/maryland-adolescent-males"				>Maryland</a></li>
+				<li><a href="#/massachusetts-adolescent-males"				>Massachusetts</a></li>
+				<li><a href="#/michigan-adolescent-males"				>Michigan</a></li>
+				<li><a href="#/minnesota-adolescent-males"				>Minnesota</a></li>
+				<li><a href="#/missouri-adolescent-males"				>Missouri</a></li>
+				<li><a href="#/montana-adolescent-males"				>Montana</a></li>
+				<li><a href="#/nebraska-adolescent-males"				>Nebraska</a></li>
+				<li><a href="#/nevada-adolescent-males"					>Nevada</a></li>
+				<li><a href="#/new hampshire-adolescent-males"				>New Hampshire</a></li>
+				<li><a href="#/new jersey-adolescent-males"				>New Jersey</a></li>
+				<li><a href="#/new mexico-adolescent-males"				>New Mexico</a></li>
+				<li><a href="#/new york-adolescent-males"				>New York</a></li>
+				<li><a href="#/north carolina-adolescent-males"				>North Carolina</a></li>
+				<li><a href="#/north dakota-adolescent-males"				>North Dakota</a></li>
+				<li><a href="#/ohio-adolescent-males"					>Ohio</a></li>
+				<li><a href="#/oklahoma-adolescent-males"				>Oklahoma</a></li>
+				<li><a href="#/oregon-adolescent-males"					>Oregon</a></li>
+				<li><a href="#/pennsylvania-adolescent-males"				>Pennsylvania</a></li>
+				<li><a href="#/south carolina-adolescent-males"				>South Carolina</a></li>
+				<li><a href="#/south dakota-adolescent-males"				>South Dakota</a></li>
+				<li><a href="#/tennessee-adolescent-males"				>Tennessee</a></li>
+				<li><a href="#/texas-adolescent-males"					>Texas</a></li>
+				<li><a href="#/utah-adolescent-males"					>Utah</a></li>
+				<li><a href="#/virginia-adolescent-males"				>Virginia</a></li>
+				<li><a href="#/washington-adolescent-males"				>Washington</a></li>
+				<li><a href="#/west virginia-adolescent-males"				>West Virginia</a></li>
+				<li><a href="#/wisconsin-adolescent-males"				>Wisconsin</a></li>
+				<li><a href="#/wyoming-adolescent-males"				>Wyoming</a></li>
+			</ul>
+        	</li>
+        	<li>
+            		<a href="#">Adolescent Females&#9662;</a>
+            		<ul class="dropdown">
+				<li><a href="#/alabama-adolescent-females"				>Alabama</a></li>
+				<li><a href="#/arizona-adolescent-females"				>Arizona</a></li>
+				<li><a href="#/california-adolescent-females"				>California</a></li>
+				<li><a href="#/colorado-adolescent-females"				>Colorado</a></li>
+				<li><a href="#/connecticut-adolescent-females"				>Connecticut</a></li>
+				<li><a href="#/florida-adolescent-females"				>Florida</a></li>
+				<li><a href="#/georgia-adolescent-females"				>Georgia</a></li>
+				<li><a href="#/idaho-adolescent-females"				>Idaho</a></li>
+				<li><a href="#/illinois-adolescent-females"				>Illinois</a></li>
+				<li><a href="#/kansas-adolescent-females"				>Kansas</a></li>
+				<li><a href="#/maryland-adolescent-females"				>Maryland</a></li>
+				<li><a href="#/michigan-adolescent-females"				>Michigan</a></li>
+				<li><a href="#/missouri-adolescent-females"				>Missouri</a></li>
+				<li><a href="#/montana-adolescent-females"				>Montana</a></li>
+				<li><a href="#/new york-adolescent-females"				>New York</a></li>
+				<li><a href="#/north carolina-adolescent-females"			>North Carolina</a></li>
+				<li><a href="#/ohio-adolescent-females"					>Ohio</a></li>
+				<li><a href="#/oregon-adolescent-females"				>Oregon</a></li>
+				<li><a href="#/pennsylvania-adolescent-females"				>Pennsylvania</a></li>
+				<li><a href="#/south carolina-adolescent-females"			>South Carolina</a></li>
+				<li><a href="#/south dakota-adolescent-females"				>South Dakota</a></li>
+				<li><a href="#/tennessee-adolescent-females"				>Tennessee</a></li>
+				<li><a href="#/texas-adolescent-females"				>Texas</a></li>
+				<li><a href="#/utah-adolescent-females"					>Utah</a></li>
+				<li><a href="#/virginia-adolescent-females"				>Virginia</a></li>
+				<li><a href="#/west virginia-adolescent-females"			>West Virginia</a></li>
+			</ul>
+        	</li>
+	</ul>
+
+
+5. Put between <div class="reveal"> and <div class="slides">
+<img src="Abel Screening.jpg" alt="ASI Lizard" style="width:240px;height:298px;   position: absolute;top: 50px; left: 100px;">
+
+

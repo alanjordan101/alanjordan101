@@ -1,0 +1,5349 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title></title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="ASI_Web_Data2_files/reveal.js-3.3.0.1/css/revealAJ.css"/>
+
+
+
+<link rel="stylesheet" href="ASI_Web_Data2_files/reveal.js-3.3.0.1/css/theme/serifAJ.css" id="theme">
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 1.2em; }
+    .reveal h2 { font-size: 1.0em;  }
+    .reveal h3 { font-size: 1.0em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: solid;
+      border-color: black;
+      border-collapse: collapse;
+      font-size: 0.4em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: solid;
+      border-color: black;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: solid;
+      border-color: black;
+    }
+
+    .reveal table#notebox { 
+      border-style: solid;
+    }
+
+   .reveal p {
+      font-size: .5em;
+   }
+  </style>
+
+
+
+ 
+
+<style type="text/css">
+    ul{
+        padding: 0;
+        list-style: none;
+        background: #7FBFFF;
+    	font-family: Arial; 
+	font-size: 1.4em
+    }
+
+    ul li{
+        display: inline-block;
+        position: relative;
+        line-height: 21px;
+        text-align: left;
+	font-family: Arial; 
+    }
+
+    ul li a{
+        display: block;
+        padding: 8px 25px;
+        color: #333;
+        text-decoration: none;
+	font-family: Arial; 
+    }
+
+    ul li a:hover{
+        color: #fff;
+        background: #7FBFFF;
+
+    }
+    ul li ul.dropdown{
+        min-width: 400%; /* Set width of the dropdown */
+        background: #7FBFFF;
+        display: none;
+        position: absolute;
+        z-index: 999;
+        left: 0;
+	font-size: .9em
+    }
+    ul li:hover ul.dropdown{
+        display: block;	/* Display the dropdown */
+    }
+    ul li ul.dropdown li{
+        display: block;
+    }
+</style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="styles.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+</head>
+<body>
+    <ul>
+        <li><a href="http://abelscreening.com/">Abelscreening.com</a></li>
+        <li><a href="#/asi-web-data">Web Data</a></li>
+        <li>
+            <a href="#">Adult &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#/adult---gender"                                          >Gender</a></li>
+                <li><a href="#/adult---age"                                             >Age</a></li>
+                <li><a href="#/adult---race"                                            >Race</a></li>
+                <li><a href="#/adult---marital-status"                                  >Marital Status</a></li>
+                <li><a href="#/adult---religion"                                        >Religion</a></li>
+                <li><a href="#/adult---education"                                       >Education</a></li>
+                <li><a href="#/adult---income"                                          >Income</a></li>
+                <li><a href="#/adult---victimization"                                   >Victimization</a></li>
+                <li><a href="#/adult---sexual-orientation---kinsey-scale"               >Sexual Orientation</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-1"            >Problematic Behaviors 1</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-2"            >Problematic Behaviors 2</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-3"            >Problematic Behaviors 3</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-4"            >Problematic Behaviors 4</a></li>
+                <li><a href="#/adult---problematic-sexual-behaviors-group-5"            >Problematic Behaviors 5</a></li>
+                <li><a href="#/adult---child-sexual-abusers"                            >Child Sexual Abusers</a></li>
+                <li><a href="#/adult---child-sexual-abusers---amount-of-force-used"     >Child Sexual Abusers - Force</a></li>
+                <li><a href="#/adult---child-sexual-abusers---gender-and-age-of-victims">Child Sexual Abusers - Gender & Age</a></li>
+                <li><a href="#/adult---child-sexual-abusers---relationship-to-victims"  >Child Sexual Abusers - Relationship</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">Adolescent &#9662;</a>
+            <ul class="dropdown">
+                <li><a href="#/adolescent---gender"                                          >Gender</a></li>
+                <li><a href="#/adolescent---age"                                             >Age</a></li>
+                <li><a href="#/adolescent---race"                                            >Race</a></li>
+                <li><a href="#/adolescent---religion"                                        >Religion</a></li>
+                <li><a href="#/adolescent---education-level"                                 >Education</a></li>
+                <li><a href="#/adolescent---repeated-grade"                                  >Repeated Grade</a></li>
+                <li><a href="#/adolescent---special-education"                               >Special Education</a></li>
+                <li><a href="#/adolescent---impregnated-girltimes-pregnant"                  >Impregnated Girl/Times Pregnant</a></li>
+                <li><a href="#/adolescent---number-of-families-lived-with"                   >Number of Families Lived With</a></li>
+                <li><a href="#/adolescent---times-raped"                                     >Times Raped</a></li>
+                <li><a href="#/adolescent---sexual-orientation"                              >Sexual Orientation</a></li>
+                <li><a href="#/adolescent---accused"                                         >Accused</a></li>
+                <li><a href="#/adolescent---not-accused"                                     >Not Accused</a></li>
+                <li><a href="#/adolescent---sexual-behaviors-group-1"                        >Problematic Behaviors 1</a></li>
+                <li><a href="#/adolescent---sexual-behaviors-group-2"                        >Problematic Behaviors 2</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers"                            >Child Sexual Abusers</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers---amount-of-force-used"     >Child Sexual Abusers - Force</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers---age-gender"               >Child Sexual Abusers - Age & Gender</a></li>
+                <li><a href="#/adolescent---child-sexual-abusers---relationship-to-victims"  >Child Sexual Abusers - Relationship</a></li>
+            </ul>
+        </li>
+    </ul>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section id="asi-web-data" class="slide level2">
+<h2><large>ASI Web Data</h2>
+<p>Total Number of Questionnaires All Sites AASI-1 through 3 Updated April 2018</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Questionnaire Type
+</th>
+<th style="text-align:right;">
+Count
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Adult Males
+</td>
+<td style="text-align:right;">
+125,297
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adult Females
+</td>
+<td style="text-align:right;">
+4,503
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adolescent Males
+</td>
+<td style="text-align:right;">
+26,447
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adolescent Females
+</td>
+<td style="text-align:right;">
+1,235
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Total
+</td>
+<td style="text-align:right;">
+157,482
+</td>
+</tr>
+</tbody>
+</table>
+<p></large></p>
+</section>
+<section id="adult---gender" class="slide level2">
+<h2>Adult - Gender</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:right;">
+Male Counts
+</th>
+<th style="text-align:right;">
+Male Percent
+</th>
+<th style="text-align:right;">
+Female Counts
+</th>
+<th style="text-align:right;">
+Female Percent
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+125,297
+</td>
+<td style="text-align:right;">
+96.5%
+</td>
+<td style="text-align:right;">
+4,503
+</td>
+<td style="text-align:right;">
+3.5%
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-6-1.svg" /></p>
+</section>
+<section id="adult---age" class="slide level2">
+<h2>Adult - Age</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:46 2018 -->
+<table border="1">
+<tr>
+<th>
+Age
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+LT 25 Yrs
+</td>
+<td align="right">
+23,046
+</td>
+<td align="right">
+18.4%
+</td>
+<td align="right">
+903
+</td>
+<td align="right">
+20.1%
+</td>
+</tr>
+<tr>
+<td>
+25-34 Yrs
+</td>
+<td align="right">
+31,049
+</td>
+<td align="right">
+24.8%
+</td>
+<td align="right">
+1,722
+</td>
+<td align="right">
+38.2%
+</td>
+</tr>
+<tr>
+<td>
+35-44 Yrs
+</td>
+<td align="right">
+31,798
+</td>
+<td align="right">
+25.4%
+</td>
+<td align="right">
+1,216
+</td>
+<td align="right">
+27.0%
+</td>
+</tr>
+<tr>
+<td>
+45-54 Yrs
+</td>
+<td align="right">
+22,519
+</td>
+<td align="right">
+18.0%
+</td>
+<td align="right">
+512
+</td>
+<td align="right">
+11.4%
+</td>
+</tr>
+<tr>
+<td>
+55 Yrs +
+</td>
+<td align="right">
+16,885
+</td>
+<td align="right">
+13.5%
+</td>
+<td align="right">
+150
+</td>
+<td align="right">
+3.3%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-8-1.svg" /></p>
+</section>
+<section id="adult---race" class="slide level2">
+<h2>Adult - Race</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:48 2018 -->
+<table border="1">
+<tr>
+<th>
+Race
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Hispanic
+</td>
+<td align="right">
+17,931
+</td>
+<td align="right">
+14.3%
+</td>
+<td align="right">
+466
+</td>
+<td align="right">
+10.3%
+</td>
+</tr>
+<tr>
+<td>
+African - American
+</td>
+<td align="right">
+12,859
+</td>
+<td align="right">
+10.3%
+</td>
+<td align="right">
+348
+</td>
+<td align="right">
+7.7%
+</td>
+</tr>
+<tr>
+<td>
+Caucasian
+</td>
+<td align="right">
+84,281
+</td>
+<td align="right">
+67.3%
+</td>
+<td align="right">
+3,365
+</td>
+<td align="right">
+74.7%
+</td>
+</tr>
+<tr>
+<td>
+Asian - American
+</td>
+<td align="right">
+1,773
+</td>
+<td align="right">
+1.4%
+</td>
+<td align="right">
+53
+</td>
+<td align="right">
+1.2%
+</td>
+</tr>
+<tr>
+<td>
+Native - American
+</td>
+<td align="right">
+4,079
+</td>
+<td align="right">
+3.3%
+</td>
+<td align="right">
+125
+</td>
+<td align="right">
+2.8%
+</td>
+</tr>
+<tr>
+<td>
+Other
+</td>
+<td align="right">
+2,411
+</td>
+<td align="right">
+1.9%
+</td>
+<td align="right">
+71
+</td>
+<td align="right">
+1.6%
+</td>
+</tr>
+<tr>
+<td>
+Biracial
+</td>
+<td align="right">
+1,878
+</td>
+<td align="right">
+1.5%
+</td>
+<td align="right">
+73
+</td>
+<td align="right">
+1.6%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-10-1.svg" /></p>
+</section>
+<section id="adult---marital-status" class="slide level2">
+<h2>Adult - Marital Status</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:48 2018 -->
+<table border="1">
+<tr>
+<th>
+Marital Status
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Single
+</td>
+<td align="right">
+48,937
+</td>
+<td align="right">
+39.1%
+</td>
+<td align="right">
+1,443
+</td>
+<td align="right">
+32.0%
+</td>
+</tr>
+<tr>
+<td>
+Separated
+</td>
+<td align="right">
+10,293
+</td>
+<td align="right">
+8.2%
+</td>
+<td align="right">
+593
+</td>
+<td align="right">
+13.2%
+</td>
+</tr>
+<tr>
+<td>
+Divorced
+</td>
+<td align="right">
+24,876
+</td>
+<td align="right">
+19.9%
+</td>
+<td align="right">
+930
+</td>
+<td align="right">
+20.7%
+</td>
+</tr>
+<tr>
+<td>
+Widowed
+</td>
+<td align="right">
+1,446
+</td>
+<td align="right">
+1.2%
+</td>
+<td align="right">
+62
+</td>
+<td align="right">
+1.4%
+</td>
+</tr>
+<tr>
+<td>
+Live w/Partner
+</td>
+<td align="right">
+7,141
+</td>
+<td align="right">
+5.7%
+</td>
+<td align="right">
+316
+</td>
+<td align="right">
+7.0%
+</td>
+</tr>
+<tr>
+<td>
+Married
+</td>
+<td align="right">
+32,475
+</td>
+<td align="right">
+25.9%
+</td>
+<td align="right">
+1,152
+</td>
+<td align="right">
+25.6%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-12-1.svg" /></p>
+</section>
+<section id="adult---religion" class="slide level2">
+<h2>Adult - Religion</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:49 2018 -->
+<table border="1">
+<tr>
+<th>
+Religion
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Roman Catholic
+</td>
+<td align="right">
+26,173
+</td>
+<td align="right">
+20.9%
+</td>
+<td align="right">
+763
+</td>
+<td align="right">
+16.9%
+</td>
+</tr>
+<tr>
+<td>
+Jewish
+</td>
+<td align="right">
+2,018
+</td>
+<td align="right">
+1.6%
+</td>
+<td align="right">
+49
+</td>
+<td align="right">
+1.1%
+</td>
+</tr>
+<tr>
+<td>
+Muslim
+</td>
+<td align="right">
+1,298
+</td>
+<td align="right">
+1.0%
+</td>
+<td align="right">
+23
+</td>
+<td align="right">
+0.5%
+</td>
+</tr>
+<tr>
+<td>
+Pentecostal
+</td>
+<td align="right">
+7,067
+</td>
+<td align="right">
+5.6%
+</td>
+<td align="right">
+281
+</td>
+<td align="right">
+6.2%
+</td>
+</tr>
+<tr>
+<td>
+Baptist
+</td>
+<td align="right">
+22,674
+</td>
+<td align="right">
+18.1%
+</td>
+<td align="right">
+878
+</td>
+<td align="right">
+19.5%
+</td>
+</tr>
+<tr>
+<td>
+Episcopal
+</td>
+<td align="right">
+1,644
+</td>
+<td align="right">
+1.3%
+</td>
+<td align="right">
+64
+</td>
+<td align="right">
+1.4%
+</td>
+</tr>
+<tr>
+<td>
+Methodist
+</td>
+<td align="right">
+5,216
+</td>
+<td align="right">
+4.2%
+</td>
+<td align="right">
+217
+</td>
+<td align="right">
+4.8%
+</td>
+</tr>
+<tr>
+<td>
+Lutheran
+</td>
+<td align="right">
+4,429
+</td>
+<td align="right">
+3.5%
+</td>
+<td align="right">
+146
+</td>
+<td align="right">
+3.2%
+</td>
+</tr>
+<tr>
+<td>
+Mormon
+</td>
+<td align="right">
+2,632
+</td>
+<td align="right">
+2.1%
+</td>
+<td align="right">
+111
+</td>
+<td align="right">
+2.5%
+</td>
+</tr>
+<tr>
+<td>
+Eastern Orthodox
+</td>
+<td align="right">
+363
+</td>
+<td align="right">
+0.3%
+</td>
+<td align="right">
+14
+</td>
+<td align="right">
+0.3%
+</td>
+</tr>
+<tr>
+<td>
+Presbyterian
+</td>
+<td align="right">
+1,851
+</td>
+<td align="right">
+1.5%
+</td>
+<td align="right">
+56
+</td>
+<td align="right">
+1.2%
+</td>
+</tr>
+<tr>
+<td>
+Other
+</td>
+<td align="right">
+18,931
+</td>
+<td align="right">
+15.1%
+</td>
+<td align="right">
+777
+</td>
+<td align="right">
+17.3%
+</td>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+29,480
+</td>
+<td align="right">
+23.5%
+</td>
+<td align="right">
+1,096
+</td>
+<td align="right">
+24.3%
+</td>
+</tr>
+<tr>
+<td>
+Atheist
+</td>
+<td align="right">
+1,383
+</td>
+<td align="right">
+1.1%
+</td>
+<td align="right">
+25
+</td>
+<td align="right">
+0.6%
+</td>
+</tr>
+</table>
+</section>
+<section id="adult---education" class="slide level2">
+<h2>Adult - Education</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:49 2018 -->
+<table border="1">
+<tr>
+<th>
+Education
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Less Than 9 Years
+</td>
+<td align="right">
+5,653
+</td>
+<td align="right">
+4.5%
+</td>
+<td align="right">
+163
+</td>
+<td align="right">
+3.6%
+</td>
+</tr>
+<tr>
+<td>
+Junior High
+</td>
+<td align="right">
+5,411
+</td>
+<td align="right">
+4.3%
+</td>
+<td align="right">
+227
+</td>
+<td align="right">
+5.0%
+</td>
+</tr>
+<tr>
+<td>
+Some High School
+</td>
+<td align="right">
+21,273
+</td>
+<td align="right">
+17.0%
+</td>
+<td align="right">
+770
+</td>
+<td align="right">
+17.1%
+</td>
+</tr>
+<tr>
+<td>
+High School
+</td>
+<td align="right">
+36,312
+</td>
+<td align="right">
+29.0%
+</td>
+<td align="right">
+1,147
+</td>
+<td align="right">
+25.5%
+</td>
+</tr>
+<tr>
+<td>
+Some College
+</td>
+<td align="right">
+28,041
+</td>
+<td align="right">
+22.4%
+</td>
+<td align="right">
+999
+</td>
+<td align="right">
+22.2%
+</td>
+</tr>
+<tr>
+<td>
+College Degree
+</td>
+<td align="right">
+17,082
+</td>
+<td align="right">
+13.6%
+</td>
+<td align="right">
+768
+</td>
+<td align="right">
+17.1%
+</td>
+</tr>
+<tr>
+<td>
+Graduate Degree
+</td>
+<td align="right">
+11,388
+</td>
+<td align="right">
+9.1%
+</td>
+<td align="right">
+424
+</td>
+<td align="right">
+9.4%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-15-1.svg" /></p>
+</section>
+<section id="adult---income" class="slide level2">
+<h2>Adult - Income</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:49 2018 -->
+<table border="1">
+<tr>
+<th>
+Income
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Under $2K
+</td>
+<td align="right">
+17,512
+</td>
+<td align="right">
+14.0%
+</td>
+<td align="right">
+526
+</td>
+<td align="right">
+11.7%
+</td>
+</tr>
+<tr>
+<td>
+$2K to $15K
+</td>
+<td align="right">
+12,932
+</td>
+<td align="right">
+10.3%
+</td>
+<td align="right">
+566
+</td>
+<td align="right">
+12.6%
+</td>
+</tr>
+<tr>
+<td>
+$15K to $25K
+</td>
+<td align="right">
+22,303
+</td>
+<td align="right">
+17.8%
+</td>
+<td align="right">
+1,133
+</td>
+<td align="right">
+25.2%
+</td>
+</tr>
+<tr>
+<td>
+$25K to $40K
+</td>
+<td align="right">
+18,501
+</td>
+<td align="right">
+14.8%
+</td>
+<td align="right">
+688
+</td>
+<td align="right">
+15.3%
+</td>
+</tr>
+<tr>
+<td>
+$40K to $60K
+</td>
+<td align="right">
+17,817
+</td>
+<td align="right">
+14.2%
+</td>
+<td align="right">
+553
+</td>
+<td align="right">
+12.3%
+</td>
+</tr>
+<tr>
+<td>
+$60K to $150K
+</td>
+<td align="right">
+14,439
+</td>
+<td align="right">
+11.5%
+</td>
+<td align="right">
+426
+</td>
+<td align="right">
+9.5%
+</td>
+</tr>
+<tr>
+<td>
+$150K to $400K
+</td>
+<td align="right">
+17,420
+</td>
+<td align="right">
+13.9%
+</td>
+<td align="right">
+488
+</td>
+<td align="right">
+10.8%
+</td>
+</tr>
+<tr>
+<td>
+$400K +
+</td>
+<td align="right">
+3,442
+</td>
+<td align="right">
+2.7%
+</td>
+<td align="right">
+90
+</td>
+<td align="right">
+2.0%
+</td>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+612
+</td>
+<td align="right">
+0.5%
+</td>
+<td align="right">
+16
+</td>
+<td align="right">
+0.4%
+</td>
+</tr>
+</table>
+</section>
+<section id="adult---victimization" class="slide level2">
+<h2>Adult - Victimization</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:49 2018 -->
+<table border="1">
+<tr>
+<th>
+Victimization
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+95,570
+</td>
+<td align="right">
+76.3%
+</td>
+<td align="right">
+2,419
+</td>
+<td align="right">
+53.7%
+</td>
+</tr>
+<tr>
+<td>
+Once
+</td>
+<td align="right">
+11,048
+</td>
+<td align="right">
+8.8%
+</td>
+<td align="right">
+617
+</td>
+<td align="right">
+13.7%
+</td>
+</tr>
+<tr>
+<td>
+2 Times
+</td>
+<td align="right">
+4,945
+</td>
+<td align="right">
+3.9%
+</td>
+<td align="right">
+329
+</td>
+<td align="right">
+7.3%
+</td>
+</tr>
+<tr>
+<td>
+3-10 Times
+</td>
+<td align="right">
+7,988
+</td>
+<td align="right">
+6.4%
+</td>
+<td align="right">
+573
+</td>
+<td align="right">
+12.7%
+</td>
+</tr>
+<tr>
+<td>
+11-50 Times
+</td>
+<td align="right">
+3,583
+</td>
+<td align="right">
+2.9%
+</td>
+<td align="right">
+313
+</td>
+<td align="right">
+7.0%
+</td>
+</tr>
+<tr>
+<td>
+More Than 50 Times
+</td>
+<td align="right">
+2,025
+</td>
+<td align="right">
+1.6%
+</td>
+<td align="right">
+245
+</td>
+<td align="right">
+5.4%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-18-1.svg" /></p>
+</section>
+<section id="adult---sexual-orientation---kinsey-scale" class="slide level2">
+<h2>Adult - Sexual Orientation - Kinsey Scale</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:49 2018 -->
+<table border="1">
+<tr>
+<th>
+Sexual Orientation
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Heterosexual
+</td>
+<td align="right">
+109,687
+</td>
+<td align="right">
+87.5%
+</td>
+<td align="right">
+3,416
+</td>
+<td align="right">
+75.9%
+</td>
+</tr>
+<tr>
+<td>
+Incidental Homosexual
+</td>
+<td align="right">
+4,720
+</td>
+<td align="right">
+3.8%
+</td>
+<td align="right">
+303
+</td>
+<td align="right">
+6.7%
+</td>
+</tr>
+<tr>
+<td>
+More Heterosexual
+</td>
+<td align="right">
+1,504
+</td>
+<td align="right">
+1.2%
+</td>
+<td align="right">
+99
+</td>
+<td align="right">
+2.2%
+</td>
+</tr>
+<tr>
+<td>
+Equally Each
+</td>
+<td align="right">
+2,348
+</td>
+<td align="right">
+1.9%
+</td>
+<td align="right">
+242
+</td>
+<td align="right">
+5.4%
+</td>
+</tr>
+<tr>
+<td>
+More Homosexual
+</td>
+<td align="right">
+1,002
+</td>
+<td align="right">
+0.8%
+</td>
+<td align="right">
+58
+</td>
+<td align="right">
+1.3%
+</td>
+</tr>
+<tr>
+<td>
+Incidental Heterosexual
+</td>
+<td align="right">
+1,368
+</td>
+<td align="right">
+1.1%
+</td>
+<td align="right">
+67
+</td>
+<td align="right">
+1.5%
+</td>
+</tr>
+<tr>
+<td>
+Homosexual
+</td>
+<td align="right">
+3,874
+</td>
+<td align="right">
+3.1%
+</td>
+<td align="right">
+283
+</td>
+<td align="right">
+6.3%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-20-1.svg" /></p>
+</section>
+<section id="adult---problematic-sexual-behaviors-group-1" class="slide level2">
+<h2>Adult - Problematic Sexual Behaviors Group 1</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:50 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Child Molestation
+</td>
+<td align="right">
+28,033
+</td>
+<td align="right">
+22.4%
+</td>
+<td align="right">
+554
+</td>
+<td align="right">
+12.3%
+</td>
+</tr>
+<tr>
+<td>
+Child Pornography
+</td>
+<td align="right">
+6,811
+</td>
+<td align="right">
+18.3%
+</td>
+<td align="right">
+24
+</td>
+<td align="right">
+1.9%
+</td>
+</tr>
+<tr>
+<td>
+Child Contact
+</td>
+<td align="right">
+3,432
+</td>
+<td align="right">
+9.2%
+</td>
+<td align="right">
+108
+</td>
+<td align="right">
+8.4%
+</td>
+</tr>
+</table>
+</br>
+<table id="notebox">
+<tr>
+<td>
+NOTE 1: Child Pornography is the use of pornography of minors.
+</tr>
+</td>
+<tr>
+<td>
+NOTE 2: Child Contact is the communicating with or meeting for sexual purposes.
+</tr>
+</td>
+<tr>
+<td>
+NOTE 3: Child Contact and Child Pornography counts are smaller because these behaviors were introduced in the AASI-3.
+</tr>
+</td>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-22-1.svg" /></p>
+</section>
+<section id="adult---problematic-sexual-behaviors-group-2" class="slide level2">
+<h2>Adult - Problematic Sexual Behaviors Group 2</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:51 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Rape
+</td>
+<td align="right">
+2,248
+</td>
+<td align="right">
+1.8%
+</td>
+<td align="right">
+27
+</td>
+<td align="right">
+0.6%
+</td>
+</tr>
+<tr>
+<td>
+Frottage
+</td>
+<td align="right">
+5,263
+</td>
+<td align="right">
+4.2%
+</td>
+<td align="right">
+43
+</td>
+<td align="right">
+1%
+</td>
+</tr>
+<tr>
+<td>
+Obscene Calls/Texts
+</td>
+<td align="right">
+9,956
+</td>
+<td align="right">
+7.9%
+</td>
+<td align="right">
+362
+</td>
+<td align="right">
+8%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-23-1.svg" /></p>
+</section>
+<section id="adult---problematic-sexual-behaviors-group-3" class="slide level2">
+<h2>Adult - Problematic Sexual Behaviors Group 3</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:52 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Public Exposure
+</td>
+<td align="right">
+8,999
+</td>
+<td align="right">
+7.2%
+</td>
+<td align="right">
+270
+</td>
+<td align="right">
+6%
+</td>
+</tr>
+<tr>
+<td>
+Public Masturbation
+</td>
+<td align="right">
+8,133
+</td>
+<td align="right">
+6.5%
+</td>
+<td align="right">
+96
+</td>
+<td align="right">
+2.1%
+</td>
+</tr>
+<tr>
+<td>
+Voyeurism
+</td>
+<td align="right">
+13,356
+</td>
+<td align="right">
+10.7%
+</td>
+<td align="right">
+71
+</td>
+<td align="right">
+1.6%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-24-1.svg" /></p>
+</section>
+<section id="adult---problematic-sexual-behaviors-group-4" class="slide level2">
+<h2>Adult - Problematic Sexual Behaviors Group 4</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:53 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Bestiality
+</td>
+<td align="right">
+6,272
+</td>
+<td align="right">
+5%
+</td>
+<td align="right">
+171
+</td>
+<td align="right">
+3.8%
+</td>
+</tr>
+<tr>
+<td>
+Copraphilia
+</td>
+<td align="right">
+1,626
+</td>
+<td align="right">
+1.3%
+</td>
+<td align="right">
+27
+</td>
+<td align="right">
+0.6%
+</td>
+</tr>
+<tr>
+<td>
+Sadism
+</td>
+<td align="right">
+2,080
+</td>
+<td align="right">
+1.7%
+</td>
+<td align="right">
+55
+</td>
+<td align="right">
+1.2%
+</td>
+</tr>
+<tr>
+<td>
+Masochism
+</td>
+<td align="right">
+2,154
+</td>
+<td align="right">
+1.7%
+</td>
+<td align="right">
+195
+</td>
+<td align="right">
+4.3%
+</td>
+</tr>
+<tr>
+<td>
+Fetishism
+</td>
+<td align="right">
+7,206
+</td>
+<td align="right">
+5.8%
+</td>
+<td align="right">
+88
+</td>
+<td align="right">
+2%
+</td>
+</tr>
+<tr>
+<td>
+Transvestism
+</td>
+<td align="right">
+4,806
+</td>
+<td align="right">
+3.8%
+</td>
+<td align="right">
+38
+</td>
+<td align="right">
+0.8%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-25-1.svg" /></p>
+</section>
+<section id="adult---problematic-sexual-behaviors-group-5" class="slide level2">
+<h2>Adult - Problematic Sexual Behaviors Group 5</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:53 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Pornography
+</td>
+<td align="right">
+34,651
+</td>
+<td align="right">
+27.7%
+</td>
+<td align="right">
+318
+</td>
+<td align="right">
+7.1%
+</td>
+</tr>
+<tr>
+<td>
+Prostitution
+</td>
+<td align="right">
+27,912
+</td>
+<td align="right">
+22.3%
+</td>
+<td align="right">
+102
+</td>
+<td align="right">
+2.3%
+</td>
+</tr>
+<tr>
+<td>
+Internet Sex
+</td>
+<td align="right">
+17,328
+</td>
+<td align="right">
+22.6%
+</td>
+<td align="right">
+155
+</td>
+<td align="right">
+5.8%
+</td>
+</tr>
+<tr>
+<td>
+Phone Sex
+</td>
+<td align="right">
+5,699
+</td>
+<td align="right">
+4.5%
+</td>
+<td align="right">
+35
+</td>
+<td align="right">
+0.8%
+</td>
+</tr>
+<tr>
+<td>
+Affairs
+</td>
+<td align="right">
+43,421
+</td>
+<td align="right">
+34.7%
+</td>
+<td align="right">
+1,393
+</td>
+<td align="right">
+31%
+</td>
+</tr>
+<tr>
+<td>
+Affairs w/Strangers
+</td>
+<td align="right">
+35,265
+</td>
+<td align="right">
+28.2%
+</td>
+<td align="right">
+941
+</td>
+<td align="right">
+20.9%
+</td>
+</tr>
+</table>
+</br>
+<table id="notebox">
+<tr>
+<td>
+NOTE 1: Prostitution is the use of prostitutes.
+</tr>
+</td>
+<tr>
+<td>
+NOTE 2: Internet Sex is the use of the internet for sexual purpose.
+</tr>
+</td>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-27-1.svg" /></p>
+</section>
+<section id="adult---child-sexual-abusers" class="slide level2">
+<h2>Adult - Child Sexual Abusers</h2>
+Onset, End, # of Children and # of Times <!-- html table generated in R 3.4.3 by xtable 1.8-2 package --> <!-- Sun Jun 10 23:33:54 2018 -->
+<table border="1">
+<tr>
+<th>
+Variable
+</th>
+<th>
+Male Mean
+</th>
+<th>
+Male Median
+</th>
+<th>
+Female Mean
+</th>
+<th>
+Female Median
+</th>
+</tr>
+<tr>
+<td>
+Age First Touched Child
+</td>
+<td align="right">
+25.0
+</td>
+<td align="right">
+22.0
+</td>
+<td align="right">
+25.6
+</td>
+<td align="right">
+25.0
+</td>
+</tr>
+<tr>
+<td>
+Age Last Touched Child
+</td>
+<td align="right">
+31.6
+</td>
+<td align="right">
+30.0
+</td>
+<td align="right">
+28.0
+</td>
+<td align="right">
+27.0
+</td>
+</tr>
+<tr>
+<td>
+# of Children Touched
+</td>
+<td align="right">
+6.3
+</td>
+<td align="right">
+2.0
+</td>
+<td align="right">
+2.1
+</td>
+<td align="right">
+1.0
+</td>
+</tr>
+<tr>
+<td>
+# of Times - Lifetime
+</td>
+<td align="right">
+36.4
+</td>
+<td align="right">
+5.0
+</td>
+<td align="right">
+30.0
+</td>
+<td align="right">
+3.0
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-29-1.svg" /></p>
+</section>
+<section id="adult---child-sexual-abusers---amount-of-force-used" class="slide level2">
+<h2>Adult - Child Sexual Abusers - Amount of Force Used</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:55 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Started by Child
+</td>
+<td align="right">
+3,917
+</td>
+<td align="right">
+14%
+</td>
+<td align="right">
+132
+</td>
+<td align="right">
+23.8%
+</td>
+</tr>
+<tr>
+<td>
+Mutual Agreement
+</td>
+<td align="right">
+12,142
+</td>
+<td align="right">
+43.3%
+</td>
+<td align="right">
+295
+</td>
+<td align="right">
+53.2%
+</td>
+</tr>
+<tr>
+<td>
+Verbal Threat
+</td>
+<td align="right">
+1,883
+</td>
+<td align="right">
+6.7%
+</td>
+<td align="right">
+38
+</td>
+<td align="right">
+6.9%
+</td>
+</tr>
+<tr>
+<td>
+Physical Restraint
+</td>
+<td align="right">
+1,832
+</td>
+<td align="right">
+6.5%
+</td>
+<td align="right">
+26
+</td>
+<td align="right">
+4.7%
+</td>
+</tr>
+<tr>
+<td>
+Excessive Aggression
+</td>
+<td align="right">
+1,530
+</td>
+<td align="right">
+5.5%
+</td>
+<td align="right">
+40
+</td>
+<td align="right">
+7.2%
+</td>
+</tr>
+<tr>
+<td>
+Death
+</td>
+<td align="right">
+31
+</td>
+<td align="right">
+0.1%
+</td>
+<td align="right">
+2
+</td>
+<td align="right">
+0.4%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-30-1.svg" /></p>
+</section>
+<section id="adult---child-sexual-abusers---gender-and-age-of-victims" class="slide level2">
+<h2>Adult - Child Sexual Abusers - Gender and Age of Victims</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:55 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Boys under 14
+</td>
+<td align="right">
+2,953
+</td>
+<td align="right">
+10.5%
+</td>
+<td align="right">
+65
+</td>
+<td align="right">
+11.7%
+</td>
+</tr>
+<tr>
+<td>
+Boys 14-17
+</td>
+<td align="right">
+1,251
+</td>
+<td align="right">
+4.5%
+</td>
+<td align="right">
+151
+</td>
+<td align="right">
+27.3%
+</td>
+</tr>
+<tr>
+<td>
+Girls under 14
+</td>
+<td align="right">
+9,034
+</td>
+<td align="right">
+32.2%
+</td>
+<td align="right">
+73
+</td>
+<td align="right">
+13.2%
+</td>
+</tr>
+<tr>
+<td>
+Girls 14-17
+</td>
+<td align="right">
+5,832
+</td>
+<td align="right">
+20.8%
+</td>
+<td align="right">
+62
+</td>
+<td align="right">
+11.2%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-31-1.svg" /></p>
+</section>
+<section id="adult---child-sexual-abusers---relationship-to-victims" class="slide level2">
+<h2>Adult - Child Sexual Abusers - Relationship to Victims</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:55 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Biological Children
+</td>
+<td align="right">
+3,461
+</td>
+<td align="right">
+12.3%
+</td>
+<td align="right">
+62
+</td>
+<td align="right">
+11.2%
+</td>
+</tr>
+<tr>
+<td>
+Stepchildren or Children of Live-in Partner
+</td>
+<td align="right">
+5,566
+</td>
+<td align="right">
+19.9%
+</td>
+<td align="right">
+35
+</td>
+<td align="right">
+6.3%
+</td>
+</tr>
+<tr>
+<td>
+Foster Children
+</td>
+<td align="right">
+247
+</td>
+<td align="right">
+0.9%
+</td>
+<td align="right">
+13
+</td>
+<td align="right">
+2.3%
+</td>
+</tr>
+<tr>
+<td>
+Adopted Children
+</td>
+<td align="right">
+619
+</td>
+<td align="right">
+2.2%
+</td>
+<td align="right">
+1
+</td>
+<td align="right">
+0.2%
+</td>
+</tr>
+<tr>
+<td>
+Grandchildren
+</td>
+<td align="right">
+1,126
+</td>
+<td align="right">
+4%
+</td>
+<td align="right">
+11
+</td>
+<td align="right">
+2%
+</td>
+</tr>
+<tr>
+<td>
+Younger Brothers &amp; Sisters
+</td>
+<td align="right">
+3,318
+</td>
+<td align="right">
+11.8%
+</td>
+<td align="right">
+54
+</td>
+<td align="right">
+9.7%
+</td>
+</tr>
+<tr>
+<td>
+Nieces &amp; Nephews
+</td>
+<td align="right">
+4,084
+</td>
+<td align="right">
+14.6%
+</td>
+<td align="right">
+87
+</td>
+<td align="right">
+15.7%
+</td>
+</tr>
+<tr>
+<td>
+Children of Neighbors or Other Acquaintances
+</td>
+<td align="right">
+11,234
+</td>
+<td align="right">
+40.1%
+</td>
+<td align="right">
+213
+</td>
+<td align="right">
+38.4%
+</td>
+</tr>
+<tr>
+<td>
+Children Left in My Care by Organization
+</td>
+<td align="right">
+1,119
+</td>
+<td align="right">
+4%
+</td>
+<td align="right">
+58
+</td>
+<td align="right">
+10.5%
+</td>
+</tr>
+<tr>
+<td>
+Strangers
+</td>
+<td align="right">
+4,265
+</td>
+<td align="right">
+15.2%
+</td>
+<td align="right">
+47
+</td>
+<td align="right">
+8.5%
+</td>
+</tr>
+<tr>
+<td>
+Children Who I Teach
+</td>
+<td align="right">
+168
+</td>
+<td align="right">
+2%
+</td>
+<td align="right">
+25
+</td>
+<td align="right">
+13.2%
+</td>
+</tr>
+<tr>
+<td>
+Children Who I coach or Train
+</td>
+<td align="right">
+128
+</td>
+<td align="right">
+1.6%
+</td>
+<td align="right">
+6
+</td>
+<td align="right">
+3.2%
+</td>
+</tr>
+<tr>
+<td>
+Children Who Are Patients or Clients
+</td>
+<td align="right">
+35
+</td>
+<td align="right">
+0.4%
+</td>
+<td align="right">
+2
+</td>
+<td align="right">
+1.1%
+</td>
+</tr>
+<tr>
+<td>
+Children Who I Connect with in a Religious Context
+</td>
+<td align="right">
+174
+</td>
+<td align="right">
+2.1%
+</td>
+<td align="right">
+4
+</td>
+<td align="right">
+2.1%
+</td>
+</tr>
+</table>
+</section>
+<section id="adolescent---gender" class="slide level2">
+<h2>Adolescent - Gender</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align:left;">
+Male Counts
+</th>
+<th style="text-align:left;">
+Male Percent
+</th>
+<th style="text-align:left;">
+Female Counts
+</th>
+<th style="text-align:left;">
+Female Percent
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+26,447
+</td>
+<td style="text-align:left;">
+95.5%
+</td>
+<td style="text-align:left;">
+1,235
+</td>
+<td style="text-align:left;">
+4.5%
+</td>
+</tr>
+</tbody>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-34-1.svg" /></p>
+</section>
+<section id="adolescent---age" class="slide level2">
+<h2>Adolescent - Age</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:56 2018 -->
+<table border="1">
+<tr>
+<th>
+Age
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+11 Yrs Old
+</td>
+<td align="right">
+133
+</td>
+<td align="right">
+0.5%
+</td>
+<td align="right">
+12
+</td>
+<td align="right">
+1.0%
+</td>
+</tr>
+<tr>
+<td>
+12 Yrs Old
+</td>
+<td align="right">
+1,081
+</td>
+<td align="right">
+4.1%
+</td>
+<td align="right">
+81
+</td>
+<td align="right">
+6.6%
+</td>
+</tr>
+<tr>
+<td>
+13 Yrs Old
+</td>
+<td align="right">
+3,100
+</td>
+<td align="right">
+11.7%
+</td>
+<td align="right">
+178
+</td>
+<td align="right">
+14.4%
+</td>
+</tr>
+<tr>
+<td>
+14 Yrs Old
+</td>
+<td align="right">
+5,039
+</td>
+<td align="right">
+19.1%
+</td>
+<td align="right">
+281
+</td>
+<td align="right">
+22.8%
+</td>
+</tr>
+<tr>
+<td>
+15 Yrs Old
+</td>
+<td align="right">
+5,781
+</td>
+<td align="right">
+21.9%
+</td>
+<td align="right">
+255
+</td>
+<td align="right">
+20.6%
+</td>
+</tr>
+<tr>
+<td>
+16 Yrs Old
+</td>
+<td align="right">
+5,939
+</td>
+<td align="right">
+22.5%
+</td>
+<td align="right">
+250
+</td>
+<td align="right">
+20.2%
+</td>
+</tr>
+<tr>
+<td>
+17 Yrs Old
+</td>
+<td align="right">
+5,374
+</td>
+<td align="right">
+20.3%
+</td>
+<td align="right">
+178
+</td>
+<td align="right">
+14.4%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-36-1.svg" /></p>
+</section>
+<section id="adolescent---race" class="slide level2">
+<h2>Adolescent - Race</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:57 2018 -->
+<table border="1">
+<tr>
+<th>
+Race
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Hispanic
+</td>
+<td align="right">
+3,429
+</td>
+<td align="right">
+13.0%
+</td>
+<td align="right">
+100
+</td>
+<td align="right">
+8.1%
+</td>
+</tr>
+<tr>
+<td>
+African - American
+</td>
+<td align="right">
+4,293
+</td>
+<td align="right">
+16.2%
+</td>
+<td align="right">
+250
+</td>
+<td align="right">
+20.2%
+</td>
+</tr>
+<tr>
+<td>
+Caucasian
+</td>
+<td align="right">
+15,635
+</td>
+<td align="right">
+59.1%
+</td>
+<td align="right">
+701
+</td>
+<td align="right">
+56.8%
+</td>
+</tr>
+<tr>
+<td>
+Asian - American
+</td>
+<td align="right">
+195
+</td>
+<td align="right">
+0.7%
+</td>
+<td align="right">
+6
+</td>
+<td align="right">
+0.5%
+</td>
+</tr>
+<tr>
+<td>
+Native - American
+</td>
+<td align="right">
+1,086
+</td>
+<td align="right">
+4.1%
+</td>
+<td align="right">
+38
+</td>
+<td align="right">
+3.1%
+</td>
+</tr>
+<tr>
+<td>
+Other
+</td>
+<td align="right">
+1,024
+</td>
+<td align="right">
+3.9%
+</td>
+<td align="right">
+71
+</td>
+<td align="right">
+5.7%
+</td>
+</tr>
+<tr>
+<td>
+Biracial
+</td>
+<td align="right">
+746
+</td>
+<td align="right">
+2.8%
+</td>
+<td align="right">
+68
+</td>
+<td align="right">
+5.5%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-38-1.svg" /></p>
+</section>
+<section id="adolescent---religion" class="slide level2">
+<h2>Adolescent - Religion</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:57 2018 -->
+<table border="1">
+<tr>
+<th>
+Religion
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Roman Catholic
+</td>
+<td align="right">
+3,953
+</td>
+<td align="right">
+14.9%
+</td>
+<td align="right">
+120
+</td>
+<td align="right">
+9.7%
+</td>
+</tr>
+<tr>
+<td>
+Jewish
+</td>
+<td align="right">
+286
+</td>
+<td align="right">
+1.1%
+</td>
+<td align="right">
+8
+</td>
+<td align="right">
+0.6%
+</td>
+</tr>
+<tr>
+<td>
+Muslim
+</td>
+<td align="right">
+219
+</td>
+<td align="right">
+0.8%
+</td>
+<td align="right">
+8
+</td>
+<td align="right">
+0.6%
+</td>
+</tr>
+<tr>
+<td>
+Pentecostal
+</td>
+<td align="right">
+732
+</td>
+<td align="right">
+2.8%
+</td>
+<td align="right">
+41
+</td>
+<td align="right">
+3.3%
+</td>
+</tr>
+<tr>
+<td>
+Baptist
+</td>
+<td align="right">
+5,340
+</td>
+<td align="right">
+20.2%
+</td>
+<td align="right">
+318
+</td>
+<td align="right">
+25.7%
+</td>
+</tr>
+<tr>
+<td>
+Episcopal
+</td>
+<td align="right">
+164
+</td>
+<td align="right">
+0.6%
+</td>
+<td align="right">
+5
+</td>
+<td align="right">
+0.4%
+</td>
+</tr>
+<tr>
+<td>
+Methodist
+</td>
+<td align="right">
+859
+</td>
+<td align="right">
+3.2%
+</td>
+<td align="right">
+47
+</td>
+<td align="right">
+3.8%
+</td>
+</tr>
+<tr>
+<td>
+Lutheran
+</td>
+<td align="right">
+728
+</td>
+<td align="right">
+2.8%
+</td>
+<td align="right">
+48
+</td>
+<td align="right">
+3.9%
+</td>
+</tr>
+<tr>
+<td>
+Mormon
+</td>
+<td align="right">
+645
+</td>
+<td align="right">
+2.4%
+</td>
+<td align="right">
+23
+</td>
+<td align="right">
+1.9%
+</td>
+</tr>
+<tr>
+<td>
+Eastern Orthodox
+</td>
+<td align="right">
+44
+</td>
+<td align="right">
+0.2%
+</td>
+<td align="right">
+0
+</td>
+<td align="right">
+0.0%
+</td>
+</tr>
+<tr>
+<td>
+Presbyterian
+</td>
+<td align="right">
+2,413
+</td>
+<td align="right">
+9.1%
+</td>
+<td align="right">
+95
+</td>
+<td align="right">
+7.7%
+</td>
+</tr>
+<tr>
+<td>
+Other
+</td>
+<td align="right">
+7,146
+</td>
+<td align="right">
+27.0%
+</td>
+<td align="right">
+331
+</td>
+<td align="right">
+26.8%
+</td>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+3,464
+</td>
+<td align="right">
+13.1%
+</td>
+<td align="right">
+173
+</td>
+<td align="right">
+14.0%
+</td>
+</tr>
+<tr>
+<td>
+Atheist
+</td>
+<td align="right">
+386
+</td>
+<td align="right">
+1.5%
+</td>
+<td align="right">
+16
+</td>
+<td align="right">
+1.3%
+</td>
+</tr>
+</table>
+</section>
+<section id="adolescent---education-level" class="slide level2">
+<h2>Adolescent - Education Level</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:57 2018 -->
+<table border="1">
+<tr>
+<th>
+Education
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+High School or GED
+</td>
+<td align="right">
+691
+</td>
+<td align="right">
+2.6%
+</td>
+<td align="right">
+24
+</td>
+<td align="right">
+1.9%
+</td>
+</tr>
+<tr>
+<td>
+Some High School
+</td>
+<td align="right">
+9,282
+</td>
+<td align="right">
+35.1%
+</td>
+<td align="right">
+353
+</td>
+<td align="right">
+28.6%
+</td>
+</tr>
+<tr>
+<td>
+Junior High School
+</td>
+<td align="right">
+5,107
+</td>
+<td align="right">
+19.3%
+</td>
+<td align="right">
+213
+</td>
+<td align="right">
+17.2%
+</td>
+</tr>
+<tr>
+<td>
+7th or 8th Grade
+</td>
+<td align="right">
+8,712
+</td>
+<td align="right">
+32.9%
+</td>
+<td align="right">
+471
+</td>
+<td align="right">
+38.1%
+</td>
+</tr>
+<tr>
+<td>
+Grade School
+</td>
+<td align="right">
+2,612
+</td>
+<td align="right">
+9.9%
+</td>
+<td align="right">
+172
+</td>
+<td align="right">
+13.9%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-41-1.svg" /></p>
+</section>
+<section id="adolescent---repeated-grade" class="slide level2">
+<h2>Adolescent - Repeated Grade</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:58 2018 -->
+<table border="1">
+<tr>
+<th>
+Repeated Grade
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+16,453
+</td>
+<td align="right">
+62.2%
+</td>
+<td align="right">
+791
+</td>
+<td align="right">
+64.0%
+</td>
+</tr>
+<tr>
+<td>
+1 Yr
+</td>
+<td align="right">
+7,544
+</td>
+<td align="right">
+28.5%
+</td>
+<td align="right">
+335
+</td>
+<td align="right">
+27.1%
+</td>
+</tr>
+<tr>
+<td>
+2 Yrs
+</td>
+<td align="right">
+1,892
+</td>
+<td align="right">
+7.2%
+</td>
+<td align="right">
+81
+</td>
+<td align="right">
+6.6%
+</td>
+</tr>
+<tr>
+<td>
+3 Yrs
+</td>
+<td align="right">
+353
+</td>
+<td align="right">
+1.3%
+</td>
+<td align="right">
+21
+</td>
+<td align="right">
+1.7%
+</td>
+</tr>
+<tr>
+<td>
+4 or more Yrs
+</td>
+<td align="right">
+164
+</td>
+<td align="right">
+0.6%
+</td>
+<td align="right">
+7
+</td>
+<td align="right">
+0.6%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-43-1.svg" /></p>
+</section>
+<section id="adolescent---special-education" class="slide level2">
+<h2>Adolescent - Special Education</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:58 2018 -->
+<table border="1">
+<tr>
+<th>
+Special Education
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+15,213
+</td>
+<td align="right">
+57.5%
+</td>
+<td align="right">
+740
+</td>
+<td align="right">
+59.9%
+</td>
+</tr>
+<tr>
+<td>
+1 Yr
+</td>
+<td align="right">
+1,651
+</td>
+<td align="right">
+6.2%
+</td>
+<td align="right">
+84
+</td>
+<td align="right">
+6.8%
+</td>
+</tr>
+<tr>
+<td>
+2 Yrs
+</td>
+<td align="right">
+1,606
+</td>
+<td align="right">
+6.1%
+</td>
+<td align="right">
+72
+</td>
+<td align="right">
+5.8%
+</td>
+</tr>
+<tr>
+<td>
+3 Yrs
+</td>
+<td align="right">
+1,374
+</td>
+<td align="right">
+5.2%
+</td>
+<td align="right">
+50
+</td>
+<td align="right">
+4.0%
+</td>
+</tr>
+<tr>
+<td>
+4 or more Yrs
+</td>
+<td align="right">
+6,524
+</td>
+<td align="right">
+24.7%
+</td>
+<td align="right">
+288
+</td>
+<td align="right">
+23.3%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-45-1.svg" /></p>
+</section>
+<section id="adolescent---impregnated-girltimes-pregnant" class="slide level2">
+<h2>Adolescent - Impregnated Girl/Times Pregnant</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:59 2018 -->
+<table border="1">
+<tr>
+<th>
+Pregnant
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Never
+</td>
+<td align="right">
+25,267
+</td>
+<td align="right">
+95.5%
+</td>
+<td align="right">
+1,146
+</td>
+<td align="right">
+92.8%
+</td>
+</tr>
+<tr>
+<td>
+Once
+</td>
+<td align="right">
+863
+</td>
+<td align="right">
+3.3%
+</td>
+<td align="right">
+67
+</td>
+<td align="right">
+5.4%
+</td>
+</tr>
+<tr>
+<td>
+Twice
+</td>
+<td align="right">
+166
+</td>
+<td align="right">
+0.6%
+</td>
+<td align="right">
+11
+</td>
+<td align="right">
+0.9%
+</td>
+</tr>
+<tr>
+<td>
+3 times
+</td>
+<td align="right">
+48
+</td>
+<td align="right">
+0.2%
+</td>
+<td align="right">
+5
+</td>
+<td align="right">
+0.4%
+</td>
+</tr>
+<tr>
+<td>
+4 or more times
+</td>
+<td align="right">
+50
+</td>
+<td align="right">
+0.2%
+</td>
+<td align="right">
+5
+</td>
+<td align="right">
+0.4%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-47-1.svg" /></p>
+</section>
+<section id="adolescent---number-of-families-lived-with" class="slide level2">
+<h2>Adolescent - Number of Families Lived With</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:33:59 2018 -->
+<table border="1">
+<tr>
+<th>
+Families
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+2,226
+</td>
+<td align="right">
+8.4%
+</td>
+<td align="right">
+168
+</td>
+<td align="right">
+13.6%
+</td>
+</tr>
+<tr>
+<td>
+One
+</td>
+<td align="right">
+11,405
+</td>
+<td align="right">
+43.1%
+</td>
+<td align="right">
+303
+</td>
+<td align="right">
+24.5%
+</td>
+</tr>
+<tr>
+<td>
+Two
+</td>
+<td align="right">
+5,829
+</td>
+<td align="right">
+22.0%
+</td>
+<td align="right">
+205
+</td>
+<td align="right">
+16.6%
+</td>
+</tr>
+<tr>
+<td>
+Three
+</td>
+<td align="right">
+2,779
+</td>
+<td align="right">
+10.5%
+</td>
+<td align="right">
+171
+</td>
+<td align="right">
+13.8%
+</td>
+</tr>
+<tr>
+<td>
+Four
+</td>
+<td align="right">
+1,443
+</td>
+<td align="right">
+5.5%
+</td>
+<td align="right">
+105
+</td>
+<td align="right">
+8.5%
+</td>
+</tr>
+<tr>
+<td>
+Five
+</td>
+<td align="right">
+884
+</td>
+<td align="right">
+3.3%
+</td>
+<td align="right">
+81
+</td>
+<td align="right">
+6.6%
+</td>
+</tr>
+<tr>
+<td>
+Six
+</td>
+<td align="right">
+503
+</td>
+<td align="right">
+1.9%
+</td>
+<td align="right">
+48
+</td>
+<td align="right">
+3.9%
+</td>
+</tr>
+<tr>
+<td>
+Seven
+</td>
+<td align="right">
+1,331
+</td>
+<td align="right">
+5.0%
+</td>
+<td align="right">
+154
+</td>
+<td align="right">
+12.5%
+</td>
+</tr>
+</table>
+</section>
+<section id="adolescent---times-raped" class="slide level2">
+<h2>Adolescent - Times Raped</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:00 2018 -->
+<table border="1">
+<tr>
+<th>
+Times Raped
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+None
+</td>
+<td align="right">
+20,303
+</td>
+<td align="right">
+76.8%
+</td>
+<td align="right">
+630
+</td>
+<td align="right">
+51.0%
+</td>
+</tr>
+<tr>
+<td>
+Once
+</td>
+<td align="right">
+2,021
+</td>
+<td align="right">
+7.6%
+</td>
+<td align="right">
+144
+</td>
+<td align="right">
+11.7%
+</td>
+</tr>
+<tr>
+<td>
+2 Times
+</td>
+<td align="right">
+1,095
+</td>
+<td align="right">
+4.1%
+</td>
+<td align="right">
+111
+</td>
+<td align="right">
+9.0%
+</td>
+</tr>
+<tr>
+<td>
+3-10 Times
+</td>
+<td align="right">
+1,712
+</td>
+<td align="right">
+6.5%
+</td>
+<td align="right">
+174
+</td>
+<td align="right">
+14.1%
+</td>
+</tr>
+<tr>
+<td>
+11-50 Times
+</td>
+<td align="right">
+751
+</td>
+<td align="right">
+2.8%
+</td>
+<td align="right">
+84
+</td>
+<td align="right">
+6.8%
+</td>
+</tr>
+<tr>
+<td>
+&gt; 50 Times
+</td>
+<td align="right">
+495
+</td>
+<td align="right">
+1.9%
+</td>
+<td align="right">
+87
+</td>
+<td align="right">
+7.0%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-50-1.svg" /></p>
+</section>
+<section id="adolescent---sexual-orientation" class="slide level2">
+<h2>Adolescent - Sexual Orientation</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:00 2018 -->
+<table border="1">
+<tr>
+<th>
+Orientation
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Always Straight
+</td>
+<td align="right">
+21,333
+</td>
+<td align="right">
+80.7%
+</td>
+<td align="right">
+766
+</td>
+<td align="right">
+62.0%
+</td>
+</tr>
+<tr>
+<td>
+Mostly Straight
+</td>
+<td align="right">
+3,637
+</td>
+<td align="right">
+13.8%
+</td>
+<td align="right">
+316
+</td>
+<td align="right">
+25.6%
+</td>
+</tr>
+<tr>
+<td>
+Mostly Gay
+</td>
+<td align="right">
+715
+</td>
+<td align="right">
+2.7%
+</td>
+<td align="right">
+79
+</td>
+<td align="right">
+6.4%
+</td>
+</tr>
+<tr>
+<td>
+Always Gay
+</td>
+<td align="right">
+386
+</td>
+<td align="right">
+1.5%
+</td>
+<td align="right">
+54
+</td>
+<td align="right">
+4.4%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-52-1.svg" /></p>
+</section>
+<section id="adolescent---accused" class="slide level2">
+<h2>Adolescent - Accused</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:01 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Never Blamed
+</td>
+<td align="right">
+3,849
+</td>
+<td align="right">
+14.6%
+</td>
+<td align="right">
+162
+</td>
+<td align="right">
+13.1%
+</td>
+</tr>
+<tr>
+<td>
+Never Near the Kid
+</td>
+<td align="right">
+736
+</td>
+<td align="right">
+2.8%
+</td>
+<td align="right">
+30
+</td>
+<td align="right">
+2.4%
+</td>
+</tr>
+<tr>
+<td>
+Was Near the Kid
+</td>
+<td align="right">
+1,532
+</td>
+<td align="right">
+5.8%
+</td>
+<td align="right">
+95
+</td>
+<td align="right">
+7.7%
+</td>
+</tr>
+<tr>
+<td>
+The Kid Wanted Me To
+</td>
+<td align="right">
+1,038
+</td>
+<td align="right">
+3.9%
+</td>
+<td align="right">
+62
+</td>
+<td align="right">
+5%
+</td>
+</tr>
+<tr>
+<td>
+Just Like They Said
+</td>
+<td align="right">
+3,143
+</td>
+<td align="right">
+11.9%
+</td>
+<td align="right">
+102
+</td>
+<td align="right">
+8.3%
+</td>
+</tr>
+<tr>
+<td>
+Not As Much as They Said
+</td>
+<td align="right">
+1,451
+</td>
+<td align="right">
+5.5%
+</td>
+<td align="right">
+52
+</td>
+<td align="right">
+4.2%
+</td>
+</tr>
+<tr>
+<td>
+A Lot More Than They Know
+</td>
+<td align="right">
+494
+</td>
+<td align="right">
+1.9%
+</td>
+<td align="right">
+18
+</td>
+<td align="right">
+1.5%
+</td>
+</tr>
+</table>
+</section>
+<section id="adolescent---not-accused" class="slide level2">
+<h2>Adolescent - Not Accused</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:01 2018 -->
+<table border="1">
+<tr>
+<th>
+Not Accused
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Not Blamed, Have Touched
+</td>
+<td align="right">
+3,523
+</td>
+<td align="right">
+13.3%
+</td>
+<td align="right">
+167
+</td>
+<td align="right">
+13.5%
+</td>
+</tr>
+<tr>
+<td>
+Not Blamed, Never Touched
+</td>
+<td align="right">
+6,932
+</td>
+<td align="right">
+26.2%
+</td>
+<td align="right">
+369
+</td>
+<td align="right">
+29.9%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-55-1.svg" /></p>
+</section>
+<section id="adolescent---sexual-behaviors-group-1" class="slide level2">
+<h2>Adolescent - Sexual Behaviors Group 1</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:02 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Public Exposure
+</td>
+<td align="right">
+2,043
+</td>
+<td align="right">
+7.7%
+</td>
+<td align="right">
+71
+</td>
+<td align="right">
+5.7%
+</td>
+</tr>
+<tr>
+<td>
+Window Peeping
+</td>
+<td align="right">
+3,150
+</td>
+<td align="right">
+11.9%
+</td>
+<td align="right">
+90
+</td>
+<td align="right">
+7.3%
+</td>
+</tr>
+<tr>
+<td>
+Sexual with Animals
+</td>
+<td align="right">
+2,293
+</td>
+<td align="right">
+8.7%
+</td>
+<td align="right">
+88
+</td>
+<td align="right">
+7.1%
+</td>
+</tr>
+<tr>
+<td>
+Obscene Letters/Calls
+</td>
+<td align="right">
+3,642
+</td>
+<td align="right">
+13.8%
+</td>
+<td align="right">
+300
+</td>
+<td align="right">
+24.3%
+</td>
+</tr>
+<tr>
+<td>
+Child Sexual Abuse
+</td>
+<td align="right">
+13,876
+</td>
+<td align="right">
+52.5%
+</td>
+<td align="right">
+573
+</td>
+<td align="right">
+46.4%
+</td>
+</tr>
+<tr>
+<td>
+Frottage
+</td>
+<td align="right">
+4,176
+</td>
+<td align="right">
+15.8%
+</td>
+<td align="right">
+138
+</td>
+<td align="right">
+11.2%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-56-1.svg" /></p>
+</section>
+<section id="adolescent---sexual-behaviors-group-2" class="slide level2">
+<h2>Adolescent - Sexual Behaviors Group 2</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:02 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Fetishism
+</td>
+<td align="right">
+5,206
+</td>
+<td align="right">
+19.7%
+</td>
+<td align="right">
+151
+</td>
+<td align="right">
+12.2%
+</td>
+</tr>
+<tr>
+<td>
+Masochism
+</td>
+<td align="right">
+419
+</td>
+<td align="right">
+1.6%
+</td>
+<td align="right">
+74
+</td>
+<td align="right">
+6%
+</td>
+</tr>
+<tr>
+<td>
+Tranvestism
+</td>
+<td align="right">
+1,515
+</td>
+<td align="right">
+5.7%
+</td>
+<td align="right">
+45
+</td>
+<td align="right">
+3.6%
+</td>
+</tr>
+<tr>
+<td>
+Sadism
+</td>
+<td align="right">
+274
+</td>
+<td align="right">
+1%
+</td>
+<td align="right">
+27
+</td>
+<td align="right">
+2.2%
+</td>
+</tr>
+<tr>
+<td>
+Telephone Sex
+</td>
+<td align="right">
+2,354
+</td>
+<td align="right">
+8.9%
+</td>
+<td align="right">
+69
+</td>
+<td align="right">
+5.6%
+</td>
+</tr>
+<tr>
+<td>
+Used Erotica
+</td>
+<td align="right">
+8,926
+</td>
+<td align="right">
+33.8%
+</td>
+<td align="right">
+285
+</td>
+<td align="right">
+23.1%
+</td>
+</tr>
+<tr>
+<td>
+Internet Sex
+</td>
+<td align="right">
+5,461
+</td>
+<td align="right">
+36.1%
+</td>
+<td align="right">
+219
+</td>
+<td align="right">
+28.8%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-57-1.svg" /></p>
+</section>
+<section id="adolescent---child-sexual-abusers" class="slide level2">
+<h2>Adolescent - Child Sexual Abusers</h2>
+Onset, End, # of Children and # of Times <!-- html table generated in R 3.4.3 by xtable 1.8-2 package --> <!-- Sun Jun 10 23:34:03 2018 -->
+<table border="1">
+<tr>
+<th>
+Variable
+</th>
+<th>
+Male Mean
+</th>
+<th>
+Male Median
+</th>
+<th>
+Female Mean
+</th>
+<th>
+Female Median
+</th>
+</tr>
+<tr>
+<td>
+Age First Touched Child
+</td>
+<td align="right">
+12.2
+</td>
+<td align="right">
+13.0
+</td>
+<td align="right">
+11.3
+</td>
+<td align="right">
+12.0
+</td>
+</tr>
+<tr>
+<td>
+Age Last Touched Child
+</td>
+<td align="right">
+13.3
+</td>
+<td align="right">
+13.0
+</td>
+<td align="right">
+12.4
+</td>
+<td align="right">
+13.0
+</td>
+</tr>
+<tr>
+<td>
+# of Children Touched
+</td>
+<td align="right">
+2.9
+</td>
+<td align="right">
+1.0
+</td>
+<td align="right">
+3.2
+</td>
+<td align="right">
+2.0
+</td>
+</tr>
+<tr>
+<td>
+# of Times - Lifetime
+</td>
+<td align="right">
+10.8
+</td>
+<td align="right">
+3.0
+</td>
+<td align="right">
+9.3
+</td>
+<td align="right">
+3.0
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-59-1.svg" /></p>
+</section>
+<section id="adolescent---child-sexual-abusers---amount-of-force-used" class="slide level2">
+<h2>Adolescent - Child Sexual Abusers - Amount of Force Used</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:03 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Initiated by Child
+</td>
+<td align="right">
+1,645
+</td>
+<td align="right">
+11.9%
+</td>
+<td align="right">
+83
+</td>
+<td align="right">
+14.5%
+</td>
+</tr>
+<tr>
+<td>
+Mutual Consent
+</td>
+<td align="right">
+3,536
+</td>
+<td align="right">
+25.5%
+</td>
+<td align="right">
+170
+</td>
+<td align="right">
+29.7%
+</td>
+</tr>
+<tr>
+<td>
+Promised Toy
+</td>
+<td align="right">
+3,548
+</td>
+<td align="right">
+25.6%
+</td>
+<td align="right">
+104
+</td>
+<td align="right">
+18.2%
+</td>
+</tr>
+<tr>
+<td>
+Tricked Kid
+</td>
+<td align="right">
+3,907
+</td>
+<td align="right">
+28.2%
+</td>
+<td align="right">
+123
+</td>
+<td align="right">
+21.5%
+</td>
+</tr>
+<tr>
+<td>
+Verbal Threat
+</td>
+<td align="right">
+990
+</td>
+<td align="right">
+7.1%
+</td>
+<td align="right">
+46
+</td>
+<td align="right">
+8%
+</td>
+</tr>
+<tr>
+<td>
+Physical Restraint
+</td>
+<td align="right">
+434
+</td>
+<td align="right">
+3.1%
+</td>
+<td align="right">
+25
+</td>
+<td align="right">
+4.4%
+</td>
+</tr>
+<tr>
+<td>
+Physical Aggression
+</td>
+<td align="right">
+132
+</td>
+<td align="right">
+1%
+</td>
+<td align="right">
+11
+</td>
+<td align="right">
+1.9%
+</td>
+</tr>
+<tr>
+<td>
+Death of Child
+</td>
+<td align="right">
+15
+</td>
+<td align="right">
+0.1%
+</td>
+<td align="right">
+0
+</td>
+<td align="right">
+0%
+</td>
+</tr>
+</table>
+</section>
+<section id="adolescent---child-sexual-abusers---age-gender" class="slide level2">
+<h2>Adolescent - Child Sexual Abusers - Age &amp; Gender</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:04 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Girls 3-4 Yrs Younger
+</td>
+<td align="right">
+4,730
+</td>
+<td align="right">
+34.1%
+</td>
+<td align="right">
+177
+</td>
+<td align="right">
+30.9%
+</td>
+</tr>
+<tr>
+<td>
+Boys 3-4 Yrs Younger
+</td>
+<td align="right">
+3,398
+</td>
+<td align="right">
+24.5%
+</td>
+<td align="right">
+197
+</td>
+<td align="right">
+34.4%
+</td>
+</tr>
+<tr>
+<td>
+Girls 5+ Yrs Younger
+</td>
+<td align="right">
+6,385
+</td>
+<td align="right">
+46%
+</td>
+<td align="right">
+210
+</td>
+<td align="right">
+36.6%
+</td>
+</tr>
+<tr>
+<td>
+Boys 5+ Yrs Younger
+</td>
+<td align="right">
+4,100
+</td>
+<td align="right">
+29.5%
+</td>
+<td align="right">
+198
+</td>
+<td align="right">
+34.6%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-61-1.svg" /></p>
+</section>
+<section id="adolescent---child-sexual-abusers---relationship-to-victims" class="slide level2">
+<h2>Adolescent - Child Sexual Abusers - Relationship to Victims</h2>
+<!-- html table generated in R 3.4.3 by xtable 1.8-2 package -->
+<!-- Sun Jun 10 23:34:04 2018 -->
+<table border="1">
+<tr>
+<th>
+Behavior
+</th>
+<th>
+Male Counts
+</th>
+<th>
+Male Percent
+</th>
+<th>
+Female Counts
+</th>
+<th>
+Female Percent
+</th>
+</tr>
+<tr>
+<td>
+Younger Sibling
+</td>
+<td align="right">
+6,454
+</td>
+<td align="right">
+46.5%
+</td>
+<td align="right">
+279
+</td>
+<td align="right">
+48.7%
+</td>
+</tr>
+<tr>
+<td>
+Foster Sibling
+</td>
+<td align="right">
+774
+</td>
+<td align="right">
+5.6%
+</td>
+<td align="right">
+63
+</td>
+<td align="right">
+11%
+</td>
+</tr>
+<tr>
+<td>
+Other Family
+</td>
+<td align="right">
+4,287
+</td>
+<td align="right">
+30.9%
+</td>
+<td align="right">
+173
+</td>
+<td align="right">
+30.2%
+</td>
+</tr>
+<tr>
+<td>
+Non-Family
+</td>
+<td align="right">
+4,695
+</td>
+<td align="right">
+33.8%
+</td>
+<td align="right">
+183
+</td>
+<td align="right">
+31.9%
+</td>
+</tr>
+</table>
+<p><img src="ASI_Web_Data2_files/figure-revealjs/unnamed-chunk-62-1.svg" /></p>
+</section>
+    </div>
+  </div>
+
+  <script src="ASI_Web_Data2_files/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="ASI_Web_Data2_files/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: false,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+
+
+        // Optional reveal.js plugins
+        dependencies: [
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
